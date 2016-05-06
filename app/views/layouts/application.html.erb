@@ -3,17 +3,23 @@
 <head>
   <title>Флэшкарточкер</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <section id="container">
     
     <header class="clearfix">
-      <h1>Флэшкарточкер</h1>
+      <h1 >Флэшкарточкер</h1>
       <ul class="navigation-links">
-        <li><a href="#">Все карточки</a></li>
-        <li><a href="#">Добавить карточку</a></li>
+        <li>
+          <a href="#" class="btn btn-info btn-lg">Все карточки</a>
+        </li>
+        <li>
+          <a href="#" class="btn btn-info btn-lg">Добавить карточку</a>
+        </li>
       </ul>
     </header>
     
