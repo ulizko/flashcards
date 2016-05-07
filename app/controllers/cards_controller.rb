@@ -1,6 +1,9 @@
 class CardsController < ApplicationController
   
-  def show
+  def index
     @cards = Card.all
+  end
+  
+  def show
   end
 end

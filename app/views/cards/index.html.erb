@@ -1,7 +1,7 @@
 <h1>Все карточки</h1>
 <table class="table table-bordered">
   <tbody>
-    <%= @cards.each do |card| %>
+    <% @cards.each do |card| %>
     <tr>
       <td>
         <%= card.original_text %>
