@@ -19,8 +19,6 @@ class CardsController < ApplicationController
   end
 
   def show
-    @card.send(:set_review_date) if
-      @card.review_date <= Date.today
   end
 
   def edit

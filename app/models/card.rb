@@ -11,11 +11,11 @@ class Card < ActiveRecord::Base
 
   before_validation :set_review_date
 
-  private
-
   def set_review_date
     update_attribute(:review_date, Time.now + 3 * 60 * 60 * 24)
   end
+
+  private
 
   def original_text_eql_translated_text
     errors.add(:original_text, 'need not be equal to translated text') if
