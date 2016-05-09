@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td class ='text-center' rowspan = '2'>
+        <%= @card.original_text %>
+      </td>
+      <td class ='text-center' rowspan = '2'>
+        <%= @card.translated_text %>
+      </td>
+      <td class ='text-center' rowspan = '2'>
+        <%= @card.review_date.strftime('%d/%m/%Y') %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_card_path %>
+      </td>
+    </tr>
+      <td>
+        <%= link_to 'Delete', card_path(@card), method: :delete %>
+      </td>
+    <tr>
+      
+    </tr>
+  </tbody>
+</table>
