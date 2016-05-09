@@ -1,5 +1,8 @@
 class CardsController < ApplicationController
   before_filter :find_card, only: [:show, :edit, :update, :destroy]
+  after_filter  only: :show do 
+    @card.send(:set_review_date)
+  end
 
   def new
     @card = Card.new
@@ -19,7 +22,6 @@ class CardsController < ApplicationController
   end
 
   def show
-    @card.send(:set_review_date)
   end
 
   def edit

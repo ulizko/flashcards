@@ -1,10 +1,10 @@
 class Card < ActiveRecord::Base
   validates_presence_of :original_text, :translated_text
   validate :original_text_eql_translated_text
-  validates :original_text, uniqueness: true, presence: true,
+  validates :original_text, uniqueness: true,
     format: { with: /\A[A-Za-z][a-z]+\Z/, message: ' should contain only the ' \
       'English alphabet and can\'t contain spaces in start of string' }
-  validates :translated_text, uniqueness: true, presence: true,
+  validates :translated_text, uniqueness: true,
     format: { with: /\A[А-Яа-я][а-я]+\Z/, message: ' should contain only the ' \
       'Cyrillic alphabet and can\'t contain spaces in start of string' }
   validates :review_date, presence: true
