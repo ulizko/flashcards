@@ -1,8 +1,14 @@
 /*= require_tree .*/
 
+.table > tbody > tr > td {
+  vertical-align: middle;
+  text-align: center;
+}
+
 p {
   font-size: 22px;
 }
+
 #container {
   margin: 48px auto;
   width: 960px;
