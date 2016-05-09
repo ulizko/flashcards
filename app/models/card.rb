@@ -7,12 +7,11 @@ class Card < ActiveRecord::Base
   validates :translated_text, uniqueness: true,
     format: { with: /\A[А-Яа-я][а-я]+\Z/, message: ' should contain only the ' \
       'Cyrillic alphabet and can\'t contain spaces in start of string' }
-  validates :review_date, presence: true
 
-  before_validation :set_review_date
+  before_create :set_review_date
 
   def set_review_date
-    update_attribute(:review_date, Time.now + 3 * 60 * 60 * 24)
+    self.review_date = Time.now + 3 * 60 * 60 * 24
   end
 
   private
