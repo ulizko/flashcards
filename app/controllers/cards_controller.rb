@@ -1,7 +1,5 @@
 class CardsController < ApplicationController
-
   before_filter :find_card, only: [:show, :edit, :update, :destroy]
-  after_filter  :set_review_date, only: :show
 
   def new
     @card = Card.new
@@ -21,6 +19,7 @@ class CardsController < ApplicationController
   end
 
   def show
+    @card.send(:set_review_date)
   end
 
   def edit
@@ -40,10 +39,6 @@ class CardsController < ApplicationController
   end
 
   private
-
-  def set_review_date
-    @card.update_attribute(:review_date, Time.now + 3 * 60 * 60 * 24)
-  end
 
   def card_params
     params.require(:card).permit(:original_text, :translated_text)
