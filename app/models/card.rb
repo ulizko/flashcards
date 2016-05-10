@@ -5,7 +5,7 @@ class Card < ActiveRecord::Base
     format: { with: /\A[A-Za-z][a-z]+\Z/, message: ' should contain only the ' \
       'English alphabet and can\'t contain spaces in start of string' }
   validates :translated_text,
-    format: { with: /\A[А-ЯЁа-яё][\s;()-.а-яё]+\Z/, message: ' should contain only the ' \
+    format: { with: /\A[А-ЯЁ(а-яё][\s;()-.а-яё]+\Z/, message: ' should contain only the ' \
       'Cyrillic alphabet and can\'t contain spaces in start of string' }
 
   before_create :set_review_date

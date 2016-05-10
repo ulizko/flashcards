@@ -9,12 +9,9 @@ require 'open-uri'
 
 page = Nokogiri::HTML(open('http://4flaga.ru/d_1_1000.html'))
 original = page.css('p.newsgr a').children.map(&:text).map(&:strip)
-
-words = page.css('p.newsgr').map(&:text)
-  .first.gsub(/[а-яё]+[а-яёa-z\s,;().-]+/).map(&:strip)
-    .delete_if { |d| d == '' }.map { |v| v.gsub(/[a-z]/, '') }
-
-ziped = original.zip(words)
+translated =
+  page.css('.newsgr a').map { |v| v.next_sibling().text.sub(' -', '') }
+  .map(&:strip)
+ziped = original.zip(translated)
 vocabulary = ziped.map { |v| [:original_text, :translated_text].zip(v).to_h }
-
 vocabulary.each { |v| Card.create(v) }
