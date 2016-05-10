@@ -13,5 +13,3 @@ page.css('p.newsgr a').each do |v|
   translated = v.next_sibling.text.sub(' -', '').strip
   Card.create(original_text: original, translated_text: translated)
 end
-# vocabulary = ziped.map { |v| [:original_text, :translated_text].zip(v).to_h }
-# vocabulary.each { |v| Card.create(v) }
