@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'open-uri'
+
+page = Nokogiri::HTML(open('http://4flaga.ru/d_1_1000.html'))
+page.css('p.newsgr a').each do |v|
+  original = v.text.strip
+  translated = v.next_sibling.text.sub(' -', '').strip
+  Card.create(original_text: original, translated_text: translated)
+end
