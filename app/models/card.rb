@@ -1,4 +1,7 @@
 class Card < ActiveRecord::Base
+  scope :review, -> { where('review_date = current_date') }
+  scope :random_card, -> { order('RANDOM()').take }
+  
   validates_presence_of :original_text, :translated_text
   validate :original_text_eql_translated_text
   validates :original_text, uniqueness: true,
