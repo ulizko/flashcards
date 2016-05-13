@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_filter :find_card, only: [:show, :edit, :update, :destroy]
+  before_filter :find_card, except: [:new, :create, :index]
 
   def new
     @card = Card.new
@@ -37,6 +37,17 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
+  def check
+    if check_card(@card)
+      flash[:success] = "Right. Let's check next card."
+      @card.increase_review_date!
+      redirect_to root_path
+    else
+      flash[:danger] = "Wrong! Try another card."
+      redirect_to root_path
+    end
+  end
+
   private
 
   def card_params
@@ -45,5 +56,10 @@ class CardsController < ApplicationController
 
   def find_card
     @card = Card.find(params[:id])
+  end
+
+  def check_card(card)
+    card[:original_text].downcase ==
+      params[:check][:check_translate].strip.downcase
   end
 end

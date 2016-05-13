@@ -1,7 +1,7 @@
 class Card < ActiveRecord::Base
-  scope :review, -> { where('review_date = current_date') }
+  scope :review, -> { where('review_date <= current_date') }
   scope :random_card, -> { order('RANDOM()').take }
-  
+
   validates_presence_of :original_text, :translated_text
   validate :original_text_eql_translated_text
   validates :original_text, uniqueness: true,
@@ -14,7 +14,11 @@ class Card < ActiveRecord::Base
   before_create :set_review_date
 
   def set_review_date
-    self.review_date = Time.now + 3 * 60 * 60 * 24
+    self.review_date = Date.today + 3
+  end
+
+  def increase_review_date!
+    update_attributes(review_date: review_date.days_since(3))
   end
 
   private

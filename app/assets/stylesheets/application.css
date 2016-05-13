@@ -14,6 +14,11 @@ p {
   width: 960px;
 }
 
+#container .message {
+  height: 20px;
+  margin-bottom: 46px;
+}
+
 #container > section {
   clear: both;
 }
