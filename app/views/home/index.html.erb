@@ -1,1 +1,6 @@
-<p>Первый в мире удобный менеджер флеш-карточек. Именно так.</p>
+<% if @card.blank? %>
+  <%= render text: content_tag(:h1, 'На сегодня карточки закончились.', class: "text-center") %>
+<% else %>
+  <%= content_tag(:h1, @card.translated_text, class: "text-center bg-info")  %>
+  <%= render 'form' %>
+<% end %>

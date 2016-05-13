@@ -1,0 +1,4 @@
+<%= simple_form_for :check, url: check_card_path(@card) do |f| %>
+  <%= f.input :check_translate, label: 'Enter translate', autocomplete: false %>
+  <%= f.button :submit, 'Check card' %>
+<% end %>
