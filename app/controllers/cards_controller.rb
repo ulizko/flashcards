@@ -41,11 +41,10 @@ class CardsController < ApplicationController
     if check_card(@card)
       flash[:success] = "Right. Let's check next card."
       @card.increase_review_date!
-      redirect_to root_path
     else
       flash[:danger] = "Wrong! Try another card."
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   private
@@ -58,8 +57,4 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
   end
 
-  def check_card(card)
-    card[:original_text].downcase ==
-      params[:check][:check_translate].strip.downcase
-  end
 end

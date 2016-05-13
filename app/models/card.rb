@@ -17,8 +17,13 @@ class Card < ActiveRecord::Base
     self.review_date = Date.today + 3
   end
 
+  def check_card(card)
+    card[:original_text].downcase ==
+      params[:check][:check_translate].strip.downcase
+  end
+
   def increase_review_date!
-    update_attributes(review_date: review_date.days_since(3))
+    update_attributes(review_date: Date.today.days_since(3))
   end
 
   private
