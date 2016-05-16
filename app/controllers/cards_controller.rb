@@ -38,7 +38,7 @@ class CardsController < ApplicationController
   end
 
   def check
-    if check_card(@card)
+    if @card.check_card(params[:check][:check_translate])
       flash[:success] = "Right. Let's check next card."
       @card.increase_review_date!
     else
