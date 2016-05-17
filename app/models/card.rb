@@ -3,13 +3,17 @@ class Card < ActiveRecord::Base
   scope :random_card, -> { order('RANDOM()').take }
 
   validates_presence_of :original_text, :translated_text
-  validate :original_text_eql_translated_text
-  validates :original_text, uniqueness: true,
-    format: { with: /\A[A-Za-z][a-z]+\Z/, message: ' should contain only the ' \
-      'English alphabet and can\'t contain spaces in start of string' }
+  validate :original_text_eql_translated_text, on: :create
+  validates :original_text,
+            format: {
+              with: /\A[A-Za-z][a-z]+\Z/,
+              message: ' should contain only the English alphabet and can\'t ' \
+              'contain spaces in start of string' }
   validates :translated_text,
-    format: { with: /\A[А-ЯЁ(а-яё][\s;()-.а-яё]+\Z/, message: ' should contain only the ' \
-      'Cyrillic alphabet and can\'t contain spaces in start of string' }
+            format: {
+              with: /\A[А-ЯЁ(а-яё][\s;()-.а-яё]+\Z/,
+              message: ' should contain only the Cyrillic alphabet and can\'t ' \
+              'contain spaces in start of string' }
 
   before_create :set_review_date
 
@@ -17,9 +21,8 @@ class Card < ActiveRecord::Base
     self.review_date = Date.today + 3
   end
 
-  def check_card(card)
-    card[:original_text].downcase ==
-      params[:check][:check_translate].strip.downcase
+  def check_card(check_translate)
+    original_text.downcase == check_translate.strip.downcase
   end
 
   def increase_review_date!
