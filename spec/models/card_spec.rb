@@ -5,7 +5,7 @@ RSpec.describe Card, type: :model do
 
   describe '#set_review_date' do
     it 'review_date should be nil' do
-      expect(card.review_date).to be_nil 
+      expect(card.review_date).to be_nil
     end
     it 'review_date should be not nil' do
       card.save
