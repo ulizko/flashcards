@@ -25,3 +25,7 @@ group :development do
   gem 'nokogiri'
   gem 'rubocop'
 end
+
+group :test do
+  gem 'capybara'
+end
