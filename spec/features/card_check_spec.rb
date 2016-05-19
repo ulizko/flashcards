@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "Card check", type: :feature do
-  let!(:card) { create(:card, review_date: 3.days.ago) }
+  let!(:user) { create(:user) }
+  let!(:card) { create(:card, review_date: 3.days.ago, user: user) }
   before(:each) { visit root_path }
   it 'should be Right' do
     expect(page).to have_content('машина')

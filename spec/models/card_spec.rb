@@ -1,13 +1,21 @@
 require "rails_helper"
 
 RSpec.describe Card, type: :model do
-  let(:card) { FactoryGirl.build(:card) }
+  let(:card) { build(:card) }
+  let(:user) { create(:user) }
+
+  describe 'belongs to user' do
+    it 'without user should be false' do
+      expect(card.valid?).to be_falsy
+    end
+  end
 
   describe '#set_review_date' do
     it 'review_date should be nil' do
       expect(card.review_date).to be_nil
     end
     it 'review_date should be not nil' do
+      card.user = user
       card.save
       expect(card.review_date).to eq(Date.today + 3)
     end
