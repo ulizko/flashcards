@@ -8,7 +8,7 @@ RSpec.describe "Card check", type: :feature do
     fill_in :check_check_translate, with: 'Car'
     click_button 'Check card'
     expect(page).to have_content('Right. Let\'s check next card.')
-    end
+  end
   it 'should be Wrong' do
     fill_in :check_check_translate, with: 'bike'
     click_button 'Check card'
