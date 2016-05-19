@@ -15,7 +15,7 @@ class Card < ActiveRecord::Base
               message: ' should contain only the Cyrillic alphabet and can\'t ' \
               'contain spaces in start of string' }
 
-  before_create :set_review_date
+  before_create :set_review_date, if: -> { review_date.nil? }
 
   def set_review_date
     self.review_date = Date.today + 3
