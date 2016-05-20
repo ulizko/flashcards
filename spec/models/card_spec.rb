@@ -2,7 +2,6 @@ require "rails_helper"
 
 RSpec.describe Card, type: :model do
   let(:card) { build(:card) }
-  # let(:user) { create(:user) }
 
   describe 'belongs to user' do
     it 'without user should be true' do
