@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe 'Login', type: :feature do
   context 'Not login' do
-    before(:each) { visit root_path 
+    before(:each) { visit root_path }
 
     it 'should be not login' do
       visit root_path

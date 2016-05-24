@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'oauths/oauth'
+
+  get 'oauths/callback'
+
   root 'home#index'
   # get 'show' => 'card#show'
   resources :cards do
@@ -11,6 +15,9 @@ Rails.application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   delete 'logout' => 'user_sessions#destroy', :as => :logout
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" 
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
