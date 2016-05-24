@@ -2,12 +2,13 @@ class CardsController < ApplicationController
   before_filter :find_card, except: [:new, :create, :index]
 
   def new
-    @card = Card.new
+    @card = current_user.cards.new
   end
 
   def create
-    @card = Card.new(card_params)
+    @card = current_user.cards.new(card_params)
     if @card.save
+      flash[:success] = "Card successful create"
       redirect_to action: 'index'
     else
       render 'new'
@@ -15,7 +16,7 @@ class CardsController < ApplicationController
   end
 
   def index
-    @cards = Card.all
+    @cards = current_user.cards
   end
 
   def show
@@ -50,7 +51,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :user_id)
   end
 
   def find_card
