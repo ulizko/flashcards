@@ -11,7 +11,7 @@ RSpec.describe 'Login', type: :feature do
     it "can't show cards" do
       expect(page).not_to have_content('Все карточки')
     end
-    
+
     it "can't add cards" do
       expect(page).not_to have_content('Добавить карточку')
     end
