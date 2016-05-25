@@ -5,13 +5,15 @@ RSpec.describe 'Login', type: :feature do
     before(:each) { visit root_path }
 
     it 'should be not login' do
-      visit root_path
       expect(page).to have_content('Please login first')
     end
 
-    it 'should dont transition other page' do
-      click_link "Все карточки"
-      expect(page).to have_content('Please login first')
+    it "can't show cards" do
+      expect(page).not_to have_content('Все карточки')
+    end
+    
+    it "can't add cards" do
+      expect(page).not_to have_content('Добавить карточку')
     end
   end
 
