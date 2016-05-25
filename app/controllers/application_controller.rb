@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
   private
+
   def not_authenticated
     flash[:danger] = "Please login first"
     redirect_to login_path
