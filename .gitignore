@@ -22,3 +22,4 @@ spring-1000/*
 lib/templates/*
 /1000
 /.rubocop.yml
+/.env

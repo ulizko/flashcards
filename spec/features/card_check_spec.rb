@@ -1,8 +1,15 @@
 require "rails_helper"
 
 RSpec.describe "Card check", type: :feature do
-  let!(:card) { create(:card, review_date: 3.days.ago) }
-  before(:each) { visit root_path }
+  let!(:user) { create(:user) }
+  let!(:card) { create(:card, review_date: 3.days.ago, user: user) }
+  before(:each) do
+    visit root_path
+    click_link "Login"
+    fill_in :email, with: user[:email]
+    fill_in :password, with: 'qwerty123'
+    click_button "Login"
+  end
   it 'should be Right' do
     expect(page).to have_content('машина')
     fill_in :check_check_translate, with: 'Car'
