@@ -20,6 +20,7 @@
 config/database.yml
 spring-1000/*
 lib/templates/*
+public/uploads/*
 /1000
 /.rubocop.yml
 /.env
