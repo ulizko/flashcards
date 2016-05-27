@@ -4,6 +4,9 @@
     <% @cards.each do |card| %>
     <tr>
       <td rowspan = '3'>
+        <%= image_tag(card.image.thumb.url) %>
+      </td>
+      <td rowspan = '3'>
         <%= card.original_text %>
       </td>
       <td rowspan = '3'>

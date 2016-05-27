@@ -1,4 +1,6 @@
 class Card < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+  
   belongs_to :user
 
   scope :review, -> { where('review_date <= current_date') }

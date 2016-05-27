@@ -13,6 +13,9 @@ gem 'pg'
 gem 'simple_form'
 gem 'sorcery'
 gem 'validates_email_format_of'
+gem 'carrierwave'
+gem 'mini_magick'
+gem "fog-aws"
 
 group :development, :test do
   gem 'byebug'

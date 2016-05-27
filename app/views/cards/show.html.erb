@@ -2,6 +2,9 @@
   <tbody>
     <tr>
       <td class ='text-center' rowspan = '2'>
+        <%= image_tag(@card.image.thumb.url) %>
+      </td>
+      <td class ='text-center' rowspan = '2'>
         <%= @card.original_text %>
       </td>
       <td class ='text-center' rowspan = '2'>
