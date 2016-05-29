@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @card = current_user.cards.review.random_card
+    if current_user.decks.current.blank?
+      @card = current_user.cards.review.random_card
+    else
+      @card = current_user.decks.current.cards.review.random_card
+    end
   end
 end

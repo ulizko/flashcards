@@ -1,7 +1,5 @@
 class CreateDecks < ActiveRecord::Migration
   def change
-    remove_reference :cards, :user, index: true, foreign_key: true
-
     create_table :decks do |t|
       t.string :name
       t.boolean :current, default: nil
