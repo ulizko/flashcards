@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     if current_user.decks.current.blank?
       @card = current_user.cards.review.random_card
     else
-      @card = current_user.decks.current.cards.review.random_card
+      @card = current_user.decks.current.take.cards.review.random_card
     end
   end
 end

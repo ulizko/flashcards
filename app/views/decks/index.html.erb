@@ -1,0 +1,27 @@
+<h1 class="text-center">Мои колоды</h1>
+<table class="table table-bordered">
+  <tbody>
+    <% @decks.each do |deck| %>
+    <tr class = "<%= deck.current ? 'info' : '' %>">
+      <td class="col-md-5">
+        <h4><%= deck.name %></h4>
+      </td>
+      <td>
+        <%= "#{deck.cards.count} cards" %>
+      </td>
+      <td class="col-md-1">
+      <%= form_tag deck_path(deck), method: :put do %>
+        <%= hidden_field_tag 'deck[name]', deck.name %>
+        <%= hidden_field_tag 'deck[user_id]', deck.user_id %>
+        <%= hidden_field_tag 'deck[current]', deck.current %>
+        <%= submit_tag "#{deck.current ? 'Unset' : 'Set'} current", class: "btn btn-info btn-block" %>
+      <% end %>
+      </td>
+      <td class="col-md-1">
+        <%= link_to 'Show', deck_path(deck) %>
+      </td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'Add new deck', new_deck_path %>
