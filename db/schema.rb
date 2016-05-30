@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20160529114856) do
   create_table "decks", force: :cascade do |t|
     t.string   "name"
     t.boolean  "current",    default: false
+    t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "user_id"
   end
 
   add_index "decks", ["current", "user_id"], name: "index_decks_on_current_and_user_id", using: :btree
@@ -63,5 +63,4 @@ ActiveRecord::Schema.define(version: 20160529114856) do
 
   add_foreign_key "cards", "decks"
   add_foreign_key "cards", "users"
-  add_foreign_key "decks", "users"
 end

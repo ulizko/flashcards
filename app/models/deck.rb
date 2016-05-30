@@ -9,7 +9,7 @@ class Deck < ActiveRecord::Base
   before_update :set_current_deck
 
   def set_current_deck
-    Deck.update_all(current: false)
+    self.user.decks.update_all(current: false)
     self.current = true
   end
 end

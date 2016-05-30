@@ -25,12 +25,12 @@ RSpec.describe 'My decks', type: :feature do
 
   context 'Current deck' do
     it 'have button Set current' do
-      expect(page).to have_selector("input[type=submit][value='Set current']")
+      expect(page).to have_content('Set current')
     end
 
     it 'have button Uset current' do
       click_button 'Set current'
-      expect(page).to have_selector("input[type=submit][value='Unset current']")
+      expect(page).to have_content('Unset current')
     end
   end
 end

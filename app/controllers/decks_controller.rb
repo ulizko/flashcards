@@ -13,7 +13,7 @@ class DecksController < ApplicationController
     @deck = current_user.decks.build(deck_params)
     if @deck.save
       flash[:success] = "Deck successful create"
-      redirect_to action: 'index'
+      redirect_to action: :index
     else
       render 'new'
     end
@@ -24,8 +24,8 @@ class DecksController < ApplicationController
 
   def update
     if @deck.update(deck_params)
-      flash[:success] = "Deck successful set default"
-      redirect_to action: 'index'
+      flash[:success] = "Current deck successful changed"
+      redirect_to action: :index
     else
       render 'edit'
     end
