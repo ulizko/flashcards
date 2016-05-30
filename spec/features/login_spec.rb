@@ -9,7 +9,7 @@ RSpec.describe 'Login', type: :feature do
     end
 
     it "can't show cards" do
-      expect(page).not_to have_content('Все карточки')
+      expect(page).not_to have_content('My decks')
     end
 
     it "can't add cards" do
@@ -18,10 +18,10 @@ RSpec.describe 'Login', type: :feature do
   end
 
   context 'Login' do
-    let!(:user) { create(:user) }
+    let!(:user) { create(:user, email: 'example@email.com') }
     it 'should be autorization' do
       visit root_path
-      fill_in :email, with: 'example3@email.com'
+      fill_in :email, with: 'example@email.com'
       fill_in :password, with: 'qwerty123'
       click_button 'Login'
       expect(page).to have_content('Login successful')
