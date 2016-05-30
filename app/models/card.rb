@@ -1,12 +1,13 @@
 class Card < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
+  belongs_to :deck
   belongs_to :user
 
   scope :review, -> { where('review_date <= current_date') }
   scope :random_card, -> { order('RANDOM()').take }
 
-  validates_presence_of :original_text, :translated_text, :user
+  validates_presence_of :original_text, :translated_text, :deck, :user
   validate :original_text_eql_translated_text, on: :create
   validates :original_text,
             format: { with: /\A[A-Za-z][a-z]+\Z/,

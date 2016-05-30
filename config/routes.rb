@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :user_sessions
   resources :users
+  resources :decks
 
   get 'login' => 'user_sessions#new', :as => :login
   delete 'logout' => 'user_sessions#destroy', :as => :logout

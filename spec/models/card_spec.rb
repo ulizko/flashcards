@@ -3,12 +3,6 @@ require "rails_helper"
 RSpec.describe Card, type: :model do
   let(:card) { build(:card) }
 
-  describe 'belongs to user' do
-    it 'with user should be true' do
-      expect(card.valid?).to be_truthy
-    end
-  end
-
   describe '#set_review_date' do
     it 'review_date should be nil' do
       expect(card.review_date).to be_nil
