@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-/Gemfile.lock
+
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -21,6 +21,7 @@ config/database.yml
 spring-1000/*
 lib/templates/*
 public/uploads/*
+public/assets/*
 /1000
 /.rubocop.yml
 /.env
