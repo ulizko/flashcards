@@ -1,10 +1,10 @@
 <%= simple_form_for @card, :html => {:multipart => true} do |f| %>
   <%= f.input :original_text %>
   <%= f.input :translated_text %>
-  <%= f.input :review_date if @card.persisted?  %>
+  <%= f.input :review_date, as: :date if @card.persisted?  %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.file_field :image %><br />
   <%= f.association  :deck, collection: current_user.decks, :label_method => :name, :value_method => :id, :label => "Deck" %>
-  
+
   <%= f.button :submit %>
 <% end %>

@@ -31,7 +31,7 @@ class Card < ActiveRecord::Base
     review_date = Time.now + DATE[try]
     update_attributes(try: try, mistake: 0, review_date: review_date)
   end
-  
+
   def decrease_review_date!
     mistake = self.mistake < 3 ? self.mistake.next : 0
     try = mistake < 3 ? self.try : self.try.pred
