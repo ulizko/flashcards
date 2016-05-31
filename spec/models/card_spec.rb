@@ -9,7 +9,7 @@ RSpec.describe Card, type: :model do
     end
     it 'review_date should be not nil' do
       card.save
-      expect(card.review_date).to eq(Date.today + 3)
+      expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour)
     end
   end
 
@@ -19,9 +19,18 @@ RSpec.describe Card, type: :model do
 
   describe '#increase_review_date!' do
     it 'should increase review date' do
-      card.review_date = Date.today - 1
-      card.increase_review_date!
-      expect(card.review_date).to eq(Date.today + 3)
+      card.save
+      3.times { card.increase_review_date! }
+      expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 1.week)
+    end
+  end
+
+  describe '#decrease_review_date!' do
+    it 'should decrease review date' do
+      card.save
+      3.times { card.increase_review_date! }
+      3.times { card.decrease_review_date! }
+      expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 12.hour)
     end
   end
 end

@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Card check", type: :feature do
   let!(:user) { create(:user) }
-  let!(:card) { create(:card, review_date: 3.days.ago, user: user) }
+  let!(:card) { create(:card, user: user) }
   before(:each) do
     visit root_path
     click_link "Login"
