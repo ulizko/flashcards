@@ -44,6 +44,7 @@ class CardsController < ApplicationController
       @card.increase_review_date!
     else
       flash[:danger] = "Wrong! Try another card."
+      @card.decrease_review_date!
     end
     redirect_to root_path
   end
