@@ -27,16 +27,15 @@ class Card < ActiveRecord::Base
   end
 
   def increase_review_date!
-    try = self.try <= 5 ? self.try.next : self.try
-    review_date = Time.now + DATE[try]
-    update_attributes(try: try, mistake: 0, review_date: review_date)
+    update_attributes(try: tries, mistake: 0, review_date: Time.now + DATE[tries])
   end
 
   def decrease_review_date!
-    mistake = self.mistake < 3 ? self.mistake.next : 0
-    try = mistake < 3 ? self.try : self.try.pred
-    review_date = mistake < 3 ? self.review_date : Time.now + DATE[1]
-    update_attributes(try: try, mistake: mistake, review_date: review_date)
+    if full_mistake?
+      update_attributes(try: 1, mistake: 0, review_date: Time.now + DATE[1])
+    else
+      update_attributes(try: try, mistake: mistake.next, review_date: review_date)
+    end
   end
 
   def check_card(check_translate)
@@ -48,5 +47,13 @@ class Card < ActiveRecord::Base
   def original_text_eql_translated_text
     errors.add(:original_text, 'need not be equal to translated text') if
       original_text.downcase == translated_text.downcase
+  end
+  
+  def full_mistake?
+    mistake < 3
+  end
+  
+  def tries
+    try <= 5 ? try.next : try
   end
 end

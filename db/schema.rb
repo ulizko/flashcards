@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20160531123515) do
     t.integer  "user_id"
     t.string   "image"
     t.integer  "deck_id"
-    t.integer  "try",             default: 0
-    t.integer  "mistake",         default: 0
+    t.integer  "try",             default: 0, null: false
+    t.integer  "mistake",         default: 0, null: false
   end
 
   add_index "cards", ["deck_id"], name: "index_cards_on_deck_id", using: :btree

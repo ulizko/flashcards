@@ -4,8 +4,8 @@ class AddTryAndMistakeToCards < ActiveRecord::Migration
       change_table :cards do |t|
         dir.up do
           t.change :review_date, :datetime
-          t.integer :try, default: 0
-          t.integer :mistake, default: 0
+          t.integer :try, null: false, default: 0
+          t.integer :mistake, null: false, default: 0
         end
         dir.down do
           t.change :review_date, :date, default: nil
