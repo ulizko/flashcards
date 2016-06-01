@@ -14,40 +14,44 @@ RSpec.describe Card, type: :model do
   end
 
   context 'checking card' do
-    before(:all) { @card = create(:card) }
+    let!(:card) { create(:card) }
 
     describe '#check_card' do
-      it { expect(@card.check_card('car')).to be_truthy }
+      it { expect(card.check_card('car')).to be_truthy }
     end
 
     describe '#increase_review_date!' do
-      before(:each) { @card.increase_review_date! }
-
       it 'should increase review date by 12 hours' do
-        expect(@card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 12.hour)
+        card.increase_review_date!
+        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 12.hour)
       end
 
       it 'should increase review date by 3 days' do
-        expect(@card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 3.day)
+        2.times { card.increase_review_date! }
+        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 3.day)
       end
 
       it 'should increase review date by 1 week' do
-        expect(@card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 1.week)
+        3.times { card.increase_review_date! }
+        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 1.week)
       end
 
       it 'should increase review date by 2 weeks' do
-        expect(@card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 2.week)
+        4.times { card.increase_review_date! }
+        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 2.week)
       end
 
       it 'should increase review date by 1 month' do
-        expect(@card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 1.month)
+        5.times { card.increase_review_date! }
+        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 1.month)
       end
     end
 
     describe '#decrease_review_date!' do
       it 'should decrease review date' do
-        3.times { @card.decrease_review_date! }
-        expect(@card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 12.hour)
+        3.times { card.increase_review_date! }
+        3.times { card.decrease_review_date! }
+        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 12.hour)
       end
     end
   end
