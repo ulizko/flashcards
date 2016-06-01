@@ -26,7 +26,7 @@ RSpec.describe Card, type: :model do
       it 'should increase review date by 12 hours' do
         expect(@card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 12.hour)
       end
-      
+
       it 'should increase review date by 3 days' do
         expect(@card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 3.day)
       end

@@ -48,11 +48,11 @@ class Card < ActiveRecord::Base
     errors.add(:original_text, 'need not be equal to translated text') if
       original_text.downcase == translated_text.downcase
   end
-  
+
   def full_mistake?
     mistake < 3
   end
-  
+
   def tries
     try <= 5 ? try.next : try
   end
