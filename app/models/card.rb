@@ -43,8 +43,8 @@ class Card < ActiveRecord::Base
   end
 
   def short_distance?(check_translate)
-    DamerauLevenshtein.
-      distance(original_text.downcase, check_translate.strip.downcase) <= 2
+    DamerauLevenshtein.distance(original_text.downcase,
+                                check_translate.strip.downcase) <= 2
   end
 
   private
