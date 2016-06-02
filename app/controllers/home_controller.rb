@@ -1,19 +1,23 @@
 class HomeController < ApplicationController
   def index
-    @card = if deck_blank? || cards_blank?
-              current_user.cards.review.random_card
+    @card = if deck_current.blank? || not_reviewed_cards.blank?
+              all_not_reviewed_cards.random_card
             else
-              current_user.decks.current.take.cards.review.random_card
+              not_reviewed_cards.random_card
             end
   end
 
   private
 
-  def deck_blank?
-    current_user.decks.current.blank?
+  def deck_current
+    current_user.decks.current
   end
 
-  def cards_blank?
-    current_user.decks.current.take.cards.review.blank?
+  def not_reviewed_cards
+    current_user.decks_not_reviewed
+  end
+
+  def all_not_reviewed_cards
+    current_user.cards.review
   end
 end
