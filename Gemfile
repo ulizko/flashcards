@@ -15,6 +15,7 @@ gem 'validates_email_format_of'
 gem 'carrierwave'
 gem 'mini_magick'
 gem "fog-aws"
+gem 'damerau-levenshtein'
 
 group :production do
   gem 'rails_12factor'

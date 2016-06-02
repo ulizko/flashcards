@@ -16,8 +16,8 @@ RSpec.describe Card, type: :model do
   context 'checking card' do
     let!(:card) { create(:card) }
 
-    describe '#check_card' do
-      it { expect(card.check_card('car')).to be_truthy }
+    describe '#check_card?' do
+      it { expect(card.check_card?('car')).to be_truthy }
     end
 
     describe '#increase_review_date!' do
@@ -52,6 +52,18 @@ RSpec.describe Card, type: :model do
         3.times { card.increase_review_date! }
         3.times { card.decrease_review_date! }
         expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 12.hour)
+      end
+    end
+
+    context 'mistake' do
+      it 'should be 1' do
+        card.decrease_review_date!
+        expect(card.mistake).to eq(1)
+      end
+
+      it 'should be 0' do
+        3.times { card.decrease_review_date! }
+        expect(card.mistake).to eq(0)
       end
     end
   end

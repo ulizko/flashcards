@@ -32,14 +32,19 @@ class Card < ActiveRecord::Base
 
   def decrease_review_date!
     if full_mistake?
-      update_attributes(try: 1, mistake: 0, review_date: Time.now + DATE[1])
-    else
       update_attributes(try: try, mistake: mistake.next, review_date: review_date)
+    else
+      update_attributes(try: 1, mistake: 0, review_date: Time.now + DATE[1])
     end
   end
 
-  def check_card(check_translate)
+  def check_card?(check_translate)
     original_text.downcase == check_translate.strip.downcase
+  end
+
+  def short_distance?(check_translate)
+    DamerauLevenshtein.
+      distance(original_text.downcase, check_translate.strip.downcase) <= 2
   end
 
   private
@@ -50,7 +55,7 @@ class Card < ActiveRecord::Base
   end
 
   def full_mistake?
-    mistake < 3
+    mistake < 2
   end
 
   def tries

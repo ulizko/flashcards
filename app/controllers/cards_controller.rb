@@ -39,8 +39,15 @@ class CardsController < ApplicationController
   end
 
   def check
-    if @card.check_card(params[:check][:check_translate])
+    if @card.check_card?(check_translate)
       flash[:success] = "Right. Let's check next card."
+      @card.increase_review_date!
+    elsif @card.short_distance?(check_translate)
+      flash[:success] = <<-MSG
+                    Oops! Your answer is correct, but you made a typo.
+                    Right translate: <strong>#{@card.original_text}</strong>,
+                    you typed: <strong>#{check_translate}</strong>
+      MSG
       @card.increase_review_date!
     else
       flash[:danger] = "Wrong! Try another card."
@@ -52,10 +59,16 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date, :deck_id, :user_id, :image)
+    params.require(:card)
+      .permit(:original_text, :translated_text, :review_date, 
+              :deck_id, :user_id, :image)
   end
 
   def find_card
     @card = Card.find(params[:id])
+  end
+
+  def check_translate
+    params[:check][:check_translate]
   end
 end
