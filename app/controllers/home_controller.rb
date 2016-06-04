@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def index
     @card = if deck_current.blank? || not_reviewed_cards.blank?
-              all_not_reviewed_cards.random_card
+              all_not_reviewed_cards
             else
-              not_reviewed_cards.random_card
-            end
+              not_reviewed_cards
+            end.random_card
   end
 
   private
