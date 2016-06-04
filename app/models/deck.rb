@@ -3,6 +3,7 @@ class Deck < ActiveRecord::Base
   has_many :cards, dependent: :destroy
 
   scope :current, -> { where(current: true) }
+  scope :not_reviewed, -> { current.take.cards.review }
 
   validates_presence_of :name
 

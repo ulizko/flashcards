@@ -16,6 +16,13 @@ RSpec.describe "Card check", type: :feature do
     click_button 'Check card'
     expect(page).to have_content('Right. Let\'s check next card.')
   end
+
+  it 'should be Oops' do
+    fill_in :check_check_translate, with: 'acr'
+    click_button 'Check card'
+    expect(page).to have_content('Oops! Your answer is correct, but')
+  end
+
   it 'should be Wrong' do
     fill_in :check_check_translate, with: 'bike'
     click_button 'Check card'
