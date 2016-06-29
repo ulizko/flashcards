@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   def self.notify_not_viewed_cards
     select { |v| v.cards.review.present? }.each do |user|
-      NotificationsMailer.pending_cards(user)
+      NotificationsMailer.pending_cards(user).deliver_now
     end
   end
 end
