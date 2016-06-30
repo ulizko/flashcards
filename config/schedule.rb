@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :hour do
+every 1.days, at: '12pm' do
   runner "User.notify_not_viewed_cards"
 end
