@@ -18,7 +18,6 @@ gem "fog-aws"
 gem 'damerau-levenshtein'
 gem 'whenever', require: false
 
-
 group :production do
   gem 'rails_12factor'
 end
