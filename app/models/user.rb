@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, email_format: { message: 'has invalid format' }
 
   def self.notify_not_viewed_cards
-    select { |v| v.cards.review.present? }.each do |user|
+    select { |u| u.cards.is_not_viewed? if u.cards.present? }.each do |user|
       NotificationsMailer.pending_cards(user).deliver_now
     end
   end
