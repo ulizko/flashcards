@@ -8,6 +8,7 @@ class Card < ActiveRecord::Base
 
   scope :review, -> { where('review_date <= ?', Time.now) }
   scope :random_card, -> { order('RANDOM()').take }
+  scope :is_not_viewed?, -> { order(:review_date).first.review_date <= Time.now }
 
   validates_presence_of :original_text, :translated_text, :deck, :user
   validate :original_text_eql_translated_text, on: [:create, :update]
