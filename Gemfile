@@ -17,6 +17,7 @@ gem 'mini_magick'
 gem "fog-aws"
 gem 'damerau-levenshtein'
 gem 'whenever', require: false
+gem 'http_accept_language'
 
 group :production do
   gem 'rails_12factor'
