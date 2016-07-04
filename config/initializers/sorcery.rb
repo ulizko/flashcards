@@ -11,7 +11,7 @@ Rails.application.config.sorcery.configure do |config|
   config.vk.key = ENV["VK_KEY"]
   config.vk.secret = ENV["VK_SECRET"]
   config.vk.callback_url = ENV["VK_CALLBACK_URL"]
-  config.vk.user_info_mapping = {email: "email"}
+  config.vk.user_info_mapping = { email: "email" }
 
   config.user_config do |user|
     user.authentications_class = Authentication
