@@ -35,6 +35,7 @@ ru:
   login_vk: "Войти черех Вконтакте"
   check_card: "Проверить карточку"
   enter_translate: "Введите перевод"
+  not_authenticated: "Войдите или зарегистрируйтесь"
   activerecord:
     models:
       card: 
