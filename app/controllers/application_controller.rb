@@ -5,12 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   before_filter :set_locale
 
-
   private
 
   def set_locale
     locale = if current_user
-            current_user.settings.locale
+            current_user.locale
           elsif params[:locale]
             session[:locale] = params[:locale]
           elsif session[:locale]

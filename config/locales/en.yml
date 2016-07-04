@@ -20,11 +20,61 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  site_name: "Flashcards"
+  don't_have_cards: "You don't have added cards."
+  no_cards_for_review: "On today no more cards."
+  logout: "Logout"
+  login: "Login"
+  register: "Register"
+  lang: "Lang"
+  rus: "Russian"
+  eng: "English"
+  all_cards: "All cards"
+  my_decks: "My decks"
+  add_card: "Add card"
+  back: "Back"
+  add_new_deck: "Add new deck"
+  set_current: "Set current"
+  successful_set_current: "Current deck successful changed"
+  successful_create_card: "Card successful create"
+  successful_create_deck: "Deck successful create"
+  right: "Right. Let's check next card."
+  oops: "Oops! Your answer is correct, but you made a typo. Right translate: <strong>%{original_text}</strong>, you typed: <strong>%{check_translate}</strong>"
+  wrong: "Wrong! Try another card."
+  profile_update: "Profile was updated!"
+  welcome: "Welcome!"
+  login_successful: "Login successful"
+  login_failed: "Login failed"
+  logged_out: "Logged out"
+  current: "current"
+  set: "set"
+  unset: "unset"
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"
+  login_twitter: "Login with Twitter"
+  login_vk: "Login with VK"
+  check_card: "Check card"
+  enter_translate: "Enter translate"
   activerecord:
+    models:
+      card: 
+        one: "Card"
+        other: "Cards"
+      deck:
+        one: "Deck"
+        other: "Decks"
+      user: "User"
     attributes:
       card:
         translated_text: "Translated text"
         original_text: "Original text"
+      deck:
+        name: "Deck name"
+      user:
+        email: "Email"
+        password: "Password"
+        confirmation: "Password confirmation"
   errors:
     messages:
       carrierwave_processing_error: failed to be processed

@@ -25,12 +25,12 @@ RSpec.describe 'My decks', type: :feature do
 
   context 'Current deck' do
     it 'have button Set current' do
-      expect(page).to have_selector(:link_or_button, 'Set current')
+      expect(page).to have_selector(:link_or_button, 'set current')
     end
 
-    it 'have button Uset current' do
-      click_button 'Set current'
-      expect(page).to have_selector(:link_or_button, 'Unset current')
+    it 'have button Unset current' do
+      click_button 'set current'
+      expect(page).to have_selector(:link_or_button, 'unset current')
     end
   end
 end

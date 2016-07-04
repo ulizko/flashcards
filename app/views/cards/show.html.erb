@@ -14,14 +14,14 @@
         <%= @card.review_date.strftime('%d/%m/%Y') %>
       </td>
       <td>
-        <%= link_to 'Edit', edit_card_path %>
+        <%= link_to t('edit'), edit_card_path %>
       </td>
     </tr>
     <tr>
       <td>
-        <%= link_to 'Delete', card_path(@card), method: :delete %>
+        <%= link_to t('delete'), card_path(@card), method: :delete %>
       </td>
     </tr>
   </tbody>
 </table>
-<%= link_to 'Back', url_for(:back) %>
+<%= link_to t('back'), url_for(:back) %>

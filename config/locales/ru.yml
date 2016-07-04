@@ -1,0 +1,58 @@
+ru:
+  site_name: "Флэшкарточкер"
+  don't_have_cards: "У Вас пока нет добавленых карточек."
+  no_cards_for_review: "На сегодня карточки закончились."
+  logout: "Выйти"
+  login: "Войти"
+  register: "Зарегистрироваться"
+  lang: "Язык"
+  rus: "Русский"
+  eng: "Английский"
+  all_cards: "Все карточки"
+  my_decks: "Мои колоды"
+  add_card: "Добавить карточку"
+  back: "Назад"
+  add_new_deck: "Добавить новую колоду"
+  set_current: "Сделать текущей"
+  successful_create_card: "Карточка успешно создана"
+  right: "Верно! Давай проверим следующую карточку"
+  oops: "Ой! Твой ответ верный, но ты сделал опечатку. Правильный перевод: <strong>%{original_text} </strong>, твой ответ: <strong>%{check_translate}</strong>"
+  wrong: "Неверно! Попробуй следующую карточку"
+  successful_create_deck: "Колода успешно создана"
+  successful_set_current: "Текущая колода успешно изменена"
+  profile_update: "Профиль обновлен"
+  welcome: "Добро пожаловать!"
+  login_successful: "Удачный вход"
+  login_failed: "Неудачный вход"
+  logged_out: "Вы вышли"
+  current: "текущую"
+  set: "установить"
+  unset: "убрать"
+  show: "Показать"
+  edit: "Редактировать"
+  delete: "Удалить"
+  login_twitter: "Войти через Twitter"
+  login_vk: "Войти черех Вконтакте"
+  check_card: "Проверить карточку"
+  enter_translate: "Введите перевод"
+  activerecord:
+    models:
+      card: 
+        one: "Карточку"
+        other: "Карточки"
+      deck:
+        one: "Колоду"
+        other: "Колоды"
+      user: "Пользователь"
+    attributes:
+      card:
+        translated_text: "Перевод"
+        original_text: "Оригинал"
+        review_date: "Дата пересмотра"
+      deck:
+        name: "Имя колоды"
+      user:
+        email: "Емэйл"
+        password: "Пароль"
+        confirmation: "Подтверждение пароля"
+  
