@@ -7,19 +7,19 @@
         <h4><%= deck.name %></h4>
       </td>
       <td>
-        <%= "#{deck.cards.count} #{t('activerecord.models.card.other')}" %>
+        <%= t('activerecord.models.card', count: deck.cards.count) %>
       </td>
       <td class="col-md-1">
       <%= form_tag deck_path(deck), method: :put do %>
         <%= hidden_field_tag 'deck[id]', deck.id %>
-        <%= submit_tag "#{deck.current ? t('unset') : t('set')} #{t('current')}", class: "btn btn-info btn-block" %>
+        <%= submit_tag "#{deck.current ? t('.unset', current: t('.current')) : t('.set', current: t('.current'))}", class: "btn btn-info btn-block" %>
       <% end %>
       </td>
       <td class="col-md-1">
-        <%= link_to t('show'), deck_path(deck) %>
+        <%= link_to t('defaults.show'), deck_path(deck) %>
       </td>
     <% end %>
     </tr>
   </tbody>
 </table>
-<%= link_to t('add_new_deck'), new_deck_path %>
+<%= link_to t('defaults.add_new_deck'), new_deck_path %>

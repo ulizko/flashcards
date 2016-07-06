@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      flash[:success] = t('welcome')
+      flash[:success] = t('.welcome')
       redirect_to root_path
     else
       render 'new'
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = t('profile_update')
+      flash[:success] = t('.profile_updated')
       redirect_to root_path
     else
       render 'edit'

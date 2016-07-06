@@ -1,50 +1,106 @@
 ru:
-  site_name: "Флэшкарточкер"
-  don't_have_cards: "У Вас пока нет добавленых карточек."
-  no_cards_for_review: "На сегодня карточки закончились."
-  logout: "Выйти"
-  login: "Войти"
-  register: "Зарегистрироваться"
-  lang: "Язык"
-  rus: "Русский"
-  eng: "Английский"
-  all_cards: "Все карточки"
-  my_decks: "Мои колоды"
-  add_card: "Добавить карточку"
-  back: "Назад"
-  add_new_deck: "Добавить новую колоду"
-  set_current: "Сделать текущей"
-  successful_create_card: "Карточка успешно создана"
-  right: "Верно! Давай проверим следующую карточку"
-  oops: "Ой! Твой ответ верный, но ты сделал опечатку. Правильный перевод: <strong>%{original_text} </strong>, твой ответ: <strong>%{check_translate}</strong>"
-  wrong: "Неверно! Попробуй следующую карточку"
-  successful_create_deck: "Колода успешно создана"
-  successful_set_current: "Текущая колода успешно изменена"
-  profile_update: "Профиль обновлен"
-  welcome: "Добро пожаловать!"
-  login_successful: "Удачный вход"
-  login_failed: "Неудачный вход"
-  logged_out: "Вы вышли"
-  current: "текущую"
-  set: "установить"
-  unset: "убрать"
-  show: "Показать"
-  edit: "Редактировать"
-  delete: "Удалить"
-  login_twitter: "Войти через Twitter"
-  login_vk: "Войти черех Вконтакте"
-  check_card: "Проверить карточку"
-  enter_translate: "Введите перевод"
-  not_authenticated: "Войдите или зарегистрируйтесь"
+  defaults:
+    show: "Показать"
+    edit: "Редактировать"
+    delete: "Удалить"
+    back: "Назад"
+    add_new_deck: "Добавить новую колоду"
+  cards:
+    index: 
+      all_cards: "Все карточки"
+    create:
+      successful_create_card: "Карточка успешно создана"
+    check:
+      right: "Верно! Давай проверим следующую карточку"
+      oops: "Ой! Твой ответ верный, но ты сделал опечатку. Правильный перевод: <strong>%{original_text} </strong>, твой ответ: <strong>%{check_translate}</strong>"
+      wrong: "Неверно! Попробуй следующую карточку"
+    form:
+      action_card: "%{action} карточку"
+      edit: "Обновить"
+      new: "Создать"
+      name: "Имя колоды"
+  decks:
+    index:
+      unset: "Снять %{current}"
+      set: "Установить %{current}"
+      current: "текущую"
+    update:
+      successful_set_current: "Текущая колода успешно изменена"
+    form:
+      action_deck: "%{action} колоду"
+      edit: "Обновить"
+      new: "Создать"
+    create:
+      successful_create_deck: "Колода успешно создана"
+  layouts:
+    application:
+      register: "Зарегистрироваться"
+      login: "Войти"
+      logout: "Выйти"
+      flashcards: "Флэшкарточкер"
+      langauge: "Язык"
+      russian: "Русский"
+      english: "Английский"
+      all_cards: "Все карточки"
+      my_decks: "Мои колоды"
+      add_card: "Добавить карточку"
+  user_sessions:
+    form:
+      login: "Войти"
+      email: "Емэйл"
+      password: "Пароль"
+    new:
+      login_with_: "Войти через %{provider}"
+      login: "Войти"
+    create:
+      login_successful: "Удачный вход"
+      login_failed: "Неудачный вход"
+      logged_out: "Вы вышли"
+  oauths:
+    callback:
+      logged_in_from: "Вы вошли через %{provider}"
+      failed_login_from: "Неудачный вход через %{provider}"
+  home:
+    index:
+      not_authenticated: "Войдите или зарегистрируйтесь"
+      don't_have_cards: "У Вас пока нет добавленых карточек."
+      no_cards_for_review: "На сегодня карточки закончились."
+    form:
+      check_card: "Проверить карточку"
+      enter_translate: "Введите перевод"
+  users:
+    new:
+      register: "Зарегистрироваться"
+    create:
+      welcome: "Добро пожаловать!"
+    form:
+      login: "Войти"
+      email: "Емэйл"
+      password: "Пароль"
+      confirmation: "Подтверждение пароля"
+      langauge: "Язык"
+      action_user: "%{action} пользователя"
+      edit: "Обновить"
+      new: "Создать"
+    update:
+      profile_updated: "Профиль обновлен"
+  notifications_mailer:
+    pending_cards:
+      subject: "Непросмотренные карточки"
+      greeting: "Привет, дорогой пользователь Флэшкарточкера (%{user})"
+      content: "У тебя есть не просмотренные карточки! Давай, хватит лениться! Нужно взять и продолжить учиться!"
   activerecord:
     models:
-      card: 
-        one: "Карточку"
-        other: "Карточки"
+      card:
+        zero: "Нет карточек"
+        one: "%{count} карточка"
+        few: "%{count} карточки"
+        many: "%{count} карточек"
       deck:
-        one: "Колоду"
-        other: "Колоды"
-      user: "Пользователь"
+        zero: "Нет колод"
+        one: "%{count} колода"
+        few: "%{count} колоды"
+        many: "%{count} колод"
     attributes:
       card:
         translated_text: "Перевод"
@@ -56,4 +112,3 @@ ru:
         email: "Емэйл"
         password: "Пароль"
         confirmation: "Подтверждение пароля"
-  

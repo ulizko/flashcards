@@ -1,5 +1,5 @@
 <%= simple_form_for @deck do |f| %>
   <%= f.input :name %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.button :submit %>
+  <%= f.button :submit, t('.action_deck', action: t(".#{params[:action]}")) %>
 <% end %>

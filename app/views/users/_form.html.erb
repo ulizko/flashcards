@@ -1,7 +1,7 @@
 <%= simple_form_for @user do |f| %>
-  <%= f.input :email, label: "#{t('activerecord.attributes.user.email')}" %>
-  <%= f.input :password, label: "#{t('activerecord.attributes.user.password')}" %>
-  <%= f.input :password_confirmation, label: "#{t('activerecord.attributes.user.confirmation')}" %>
-  <%= f.input :locale, label: t('lang'), collection: I18n.available_locales, selected: I18n.locale %>
-  <%= f.button :submit %>
+  <%= f.input :email, label: "#{t('.email')}" %>
+  <%= f.input :password, label: "#{t('.password')}" %>
+  <%= f.input :password_confirmation, label: "#{t('.confirmation')}" %>
+  <%= f.input :locale, label: t('.langauge'), collection: I18n.available_locales, selected: I18n.locale %>
+  <%= f.button :submit, t('.action_user', action: t(".#{params[:action]}")) %>
 <% end %>
