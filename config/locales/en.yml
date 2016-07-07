@@ -33,7 +33,7 @@ en:
       successful_create_card: "Card successful create"
     check:
       right: "Right. Let's check next card."
-      oops: "Oops! Your answer is correct, but you made a typo. Right translate: <strong>%{original_text}</strong>, you typed: <strong>%{check_translate}</strong>"
+      oops: "Oops! Your answer is correct, but you made a typo. Right translate: %{original_text}, you typed: %{check_translate}"
       wrong: "Wrong! Try another card."
     form:
       action_card: "%{action} card"

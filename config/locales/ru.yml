@@ -12,7 +12,7 @@ ru:
       successful_create_card: "Карточка успешно создана"
     check:
       right: "Верно! Давай проверим следующую карточку"
-      oops: "Ой! Твой ответ верный, но ты сделал опечатку. Правильный перевод: <strong>%{original_text} </strong>, твой ответ: <strong>%{check_translate}</strong>"
+      oops: "Ой! Твой ответ верный, но ты сделал опечатку. Правильный перевод: %{original_text}, твой ответ: %{check_translate}"
       wrong: "Неверно! Попробуй следующую карточку"
     form:
       action_card: "%{action} карточку"

@@ -82,7 +82,7 @@ Rails.application.configure do
     address:        ENV['MAILGUN_SMTP_SERVER'],
     user_name:      ENV['MAILGUN_SMTP_LOGIN'],
     password:       ENV['MAILGUN_SMTP_PASSWORD'],
-    domain:         'http://thawing-wave-73151.herokuapp.com',
+    domain:         ENV['DOMAIN'],
     authentication: :plain
   }
 end
