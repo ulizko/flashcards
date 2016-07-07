@@ -11,17 +11,17 @@
         <%= @card.translated_text %>
       </td>
       <td class ='text-center' rowspan = '2'>
-        <%= @card.review_date.strftime('%d/%m/%Y') %>
+        <%= l @card.review_date.to_date, format: :default %>
       </td>
       <td>
-        <%= link_to 'Edit', edit_card_path %>
+        <%= link_to t('defaults.edit'), edit_card_path %>
       </td>
     </tr>
     <tr>
       <td>
-        <%= link_to 'Delete', card_path(@card), method: :delete %>
+        <%= link_to t('defaults.delete'), card_path(@card), method: :delete %>
       </td>
     </tr>
   </tbody>
 </table>
-<%= link_to 'Back', url_for(:back) %>
+<%= link_to t('defaults.back'), url_for(:back) %>

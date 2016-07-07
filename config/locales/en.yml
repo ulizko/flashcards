@@ -20,11 +20,117 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  defaults:
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    back: "Back"
+    add_new_deck: "Add new deck"
+  cards:
+    index: 
+      all_cards: "All cards"
+    create:
+      successful_create_card: "Card successful create"
+    check:
+      right: "Right. Let's check next card."
+      oops: "Oops! Your answer is correct, but you made a typo. Right translate: %{original_text}, you typed: %{check_translate}"
+      wrong: "Wrong! Try another card."
+    form:
+      action_card: "%{action} card"
+      edit: "Update"
+      new: "Create"
+      name: "Deck"
+  decks:
+    index:
+      unset: "Unset %{current}"
+      set: "Set %{current}"
+      current: "current"
+    update:
+      successful_set_current: "Current deck successful changed"
+    form:
+      action_deck: "%{action} deck"
+      edit: "Update"
+      new: "Create"
+    create:
+      successful_create_deck: "Deck successful create"
+  layouts:
+    application:
+      register: "Register"
+      login: "Login"
+      logout: "Logout"
+      flashcards: "Flashcards"
+      langauge: "Langauge"
+      russian: "Russian"
+      english: "English"
+      all_cards: "All cards"
+      my_decks: "My decks"
+      add_card: "Add card"
+  user_sessions:
+    form:
+      login: "Login"
+      email: "Email"
+      password: "Password"
+    new:
+      login_with_: "Login with %{provider}"
+      login: "Login"
+    create:
+      login_successful: "Login successful"
+      login_failed: "Login failed"
+      logged_out: "Logged out"
+  oauths:
+    callback:
+      logged_in_from: "You logged from %{provider}"
+      failed_login_from: "Failed login from %{provider}"
+  home:
+    index:
+      not_authenticated: "Please login first"
+      don't_have_cards: "You don't have added cards."
+      no_cards_for_review: "On today no more cards."
+    form:
+      check_card: "Check card"
+      enter_translate: "Enter translate"
+  users:
+    new:
+      register: "Register"
+    create:
+      welcome: "Welcome!"
+    form:
+      login: "Login"
+      email: "Email"
+      password: "Password"
+      confirmation: "Password confirmation"
+      langauge: "Langauge"
+      action_user: "%{action} user"
+      edit: "Edit"
+      new: "Create"
+    update:
+      profile_updated: "Profile was updated!"
+  notifications_mailer:
+    pending_cards:
+      subject: "Not reviewed cards"
+      greeting: "Hi, dear User Flashcards App (%{user})"
+      content: "You have not reviewed cards! Come on, enough is lazy! Just take it and continue learning!"
   activerecord:
+    models:
+      card:
+        zero: "No cards"
+        one: "%{count} card"
+        other: "%{count} cards"
+      deck:
+        zero: "No decks"
+        one: "%{count} deck"
+        other: "%{count} decks"
     attributes:
       card:
-        translated_text: "Translated text"
-        original_text: "Original text"
+        translated_text: "Translate"
+        original_text: "Original"
+        review_date: "Review date"
+      deck:
+        name: "Deck"
+      user:
+        email: "Email"
+        password: "Password"
+        confirmation: "Password confirmation"
   errors:
     messages:
       carrierwave_processing_error: failed to be processed

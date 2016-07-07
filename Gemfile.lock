@@ -57,6 +57,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    carrierwave-i18n (0.1.0)
     chronic (0.10.2)
     coderay (1.1.1)
     coffee-rails (4.1.1)
@@ -103,6 +104,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    http_accept_language (2.0.5)
     i18n (0.7.0)
     ipaddress (0.8.3)
     jbuilder (2.4.1)
@@ -170,6 +172,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (4.0.8)
+      i18n (~> 0.7)
+      railties (~> 4.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -265,12 +270,14 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
+  carrierwave-i18n
   coffee-rails (~> 4.1.0)
   damerau-levenshtein
   database_cleaner
   dotenv-rails
   factory_girl_rails
   fog-aws
+  http_accept_language
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
@@ -278,6 +285,7 @@ DEPENDENCIES
   pg
   pry-rails
   rails (= 4.2.5.1)
+  rails-i18n (~> 4.0.0)
   rails_12factor
   rspec-rails (~> 3.0)
   rubocop

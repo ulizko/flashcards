@@ -1,7 +1,7 @@
 <% if current_user.cards.blank? %>
-  <%= render text: content_tag(:h1, 'У Вас пока нет добавленых карточек.', class: "text-center") %>
+  <%= render text: content_tag(:h1, t('.don\'t_have_cards'), class: "text-center") %>
 <% elsif @card.blank? %>
-  <%= render text: content_tag(:h1, 'На сегодня карточки закончились.', class: "text-center") %>
+  <%= render text: content_tag(:h1, t('.no_cards_for_review'), class: "text-center") %>
 <% else %>
   <%= image_tag(@card.image_url, class: "text-center bg-info")  %>
   <%= content_tag(:h1, @card.translated_text, class: "text-center bg-info")  %>

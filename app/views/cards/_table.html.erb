@@ -12,20 +12,20 @@
         <%= card.translated_text %>
       </td>
       <td rowspan = '3'>
-        <%= card.review_date.strftime('%d/%m/%Y') %>
+        <%= l card.review_date.to_date, format: :default %>
       </td>
       <td>
-        <%= link_to 'Show', card_path(card) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= link_to 'Edit', edit_card_path(card) %>
+        <%= link_to t('defaults.show'), card_path(card) %>
       </td>
     </tr>
     <tr>
       <td>
-        <%= link_to 'Delete', card_path(card), method: :delete %>
+        <%= link_to t('defaults.edit'), edit_card_path(card) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= link_to t('defaults.delete'), card_path(card), method: :delete %>
       </td>
     </tr>
     <% end %>

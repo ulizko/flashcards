@@ -12,7 +12,7 @@ class DecksController < ApplicationController
   def create
     @deck = current_user.decks.build(deck_params)
     if @deck.save
-      flash[:success] = "Deck successful create"
+      flash[:success] = t('.successful_create_deck')
       redirect_to action: :index
     else
       render 'new'
@@ -24,7 +24,7 @@ class DecksController < ApplicationController
 
   def update
     if @deck.update(deck_params)
-      flash[:success] = "Current deck successful changed"
+      flash[:success] = t('.successful_set_current')
       redirect_to action: :index
     else
       render 'edit'

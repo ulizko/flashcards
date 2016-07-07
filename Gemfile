@@ -13,10 +13,13 @@ gem 'simple_form'
 gem 'sorcery'
 gem 'validates_email_format_of'
 gem 'carrierwave'
+gem 'carrierwave-i18n'
 gem 'mini_magick'
 gem "fog-aws"
 gem 'damerau-levenshtein'
 gem 'whenever', require: false
+gem 'http_accept_language'
+gem 'rails-i18n', '~> 4.0.0'
 
 group :production do
   gem 'rails_12factor'
