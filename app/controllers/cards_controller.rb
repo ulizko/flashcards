@@ -39,16 +39,15 @@ class CardsController < ApplicationController
   end
 
   def check
-    if @card.check_card?(check_translate)
+    result = CardChecker.new(@card, check_translate, time).get_result
+    if result[:quality] > 3
       flash[:success] = t('.right')
-      @card.increase_review_date!
-    elsif @card.short_distance?(check_translate)
+    elsif result[:quality] == 3
       flash[:success] = t('.oops', original_text: @card.original_text, check_translate: check_translate)
-      @card.increase_review_date!
     else
       flash[:danger] = t('.wrong')
-      @card.decrease_review_date!
     end
+    @card.next_review_date!(result)
     redirect_to root_path
   end
 
@@ -65,5 +64,9 @@ class CardsController < ApplicationController
 
   def check_translate
     params[:check][:check_translate]
+  end
+  
+  def time
+    params[:check][:time]
   end
 end

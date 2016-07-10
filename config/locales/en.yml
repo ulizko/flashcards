@@ -39,6 +39,7 @@ en:
       action_card: "%{action} card"
       edit: "Update"
       new: "Create"
+      create: "Create"
       name: "Deck"
   decks:
     index:
@@ -131,6 +132,14 @@ en:
         email: "Email"
         password: "Password"
         confirmation: "Password confirmation"
+    errors:
+      models:
+        card:
+          attributes:
+            original_text:
+              invalid:  " should not contain digits or can't contain spaces in start of string"
+            translated_text:
+              invalid:  " should not contain digits or can't contain spaces in start of string"
   errors:
     messages:
       carrierwave_processing_error: failed to be processed

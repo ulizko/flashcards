@@ -18,6 +18,7 @@ ru:
       action_card: "%{action} карточку"
       edit: "Обновить"
       new: "Создать"
+      create: "Создать"
       name: "Имя колоды"
   decks:
     index:
@@ -112,3 +113,11 @@ ru:
         email: "Емэйл"
         password: "Пароль"
         confirmation: "Подтверждение пароля"
+    errors:
+      models:
+        card:
+          attributes:
+            original_text:
+              invalid:  " не может содержать цифры или начинаться с пробела"
+            translated_text:
+              invalid:  " не может содержать цифры или начинаться с пробела"
