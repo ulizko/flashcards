@@ -35,6 +35,7 @@ en:
       right: "Right. Let's check next card."
       oops: "Oops! Your answer is correct, but you made a typo. Right translate: %{original_text}, you typed: %{check_translate}"
       wrong: "Wrong! Try another card."
+      to_long: "Your answer is right. But you think too long. You should repeat."
     form:
       action_card: "%{action} card"
       edit: "Update"

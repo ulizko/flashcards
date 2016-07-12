@@ -39,14 +39,19 @@ class CardsController < ApplicationController
   end
 
   def check
-    result = CardChecker.new(@card, check_translate, time).get_result
-    if result[:quality] > 3
+    typo = @card.levenstein(check_translate)
+    cheked = @card.check_card?(check_translate)
+    if cheked && time > 30
+      flash[:success] = t('.too_long')
+    elsif cheked
       flash[:success] = t('.right')
-    elsif result[:quality] == 3
-      flash[:success] = t('.oops', original_text: @card.original_text, check_translate: check_translate)
+    elsif typo <= 2
+      flash[:success] = t('.oops', original_text: @card.original_text,
+                                  check_translate: check_translate)
     else
       flash[:danger] = t('.wrong')
     end
+    result = SuperMemo.new(@card, cheked, time, typo).get_result
     @card.next_review_date!(result)
     redirect_to root_path
   end
@@ -65,8 +70,8 @@ class CardsController < ApplicationController
   def check_translate
     params[:check][:check_translate]
   end
-  
+
   def time
-    params[:check][:time]
+    params[:check][:time].to_i
   end
 end

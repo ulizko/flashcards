@@ -23,7 +23,7 @@ class Card < ActiveRecord::Base
     self.review_date = Time.now
   end
 
-  def next_review_date!(result ={})
+  def next_review_date!(result = {})
     if result[:quality] == 3
       result = result.except!(:interval, :repeat)
     else
@@ -33,12 +33,12 @@ class Card < ActiveRecord::Base
     update_attributes(result)
   end
 
-  def decrease_review_date!
-    if full_mistake?
-      update_attributes(try: try, mistake: mistake.next, review_date: review_date)
-    else
-      update_attributes(try: 1, mistake: 0, review_date: Time.now + DATE[1])
-    end
+  def check_card?(check_translate)
+    original_text.downcase == check_translate.strip.downcase
+  end
+
+  def levenstein(check_translate)
+    DamerauLevenshtein.distance(original_text.downcase, check_translate.strip.downcase)
   end
 
   private
