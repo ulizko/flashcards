@@ -15,8 +15,6 @@ class SuperMemo
       messages: messages }
   end
 
-  private
-
   def new_efactor
     [@card.efactor + Q_SUMMAND[grade], 1.3].max
   end

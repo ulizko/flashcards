@@ -32,7 +32,7 @@ RSpec.describe "Card check", type: :feature do
   end
 
   it 'should be Too long' do
-    page.all("input[id='check_time']", :visible => false).first.set(31)
+    page.all("input[id='check_time']", visible: false).first.set(31)
     fill_in :check_check_translate, with: 'orange'
     click_button I18n.t('home.form.check_card')
     expect(page).to have_content(I18n.t('cards.check.too_long'))
