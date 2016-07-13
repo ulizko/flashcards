@@ -1,18 +1,18 @@
 class SuperMemo
   Q_SUMMAND = [-0.8, -0.54, -0.32, -0.14, 0, 0.1].freeze
 
-  def initialize(card, cheked, time, typo)
+  def initialize(card, check_translate, time)
     @card = card
-    @cheked_translate = cheked
+    @cheked_translate = check_translate.strip.downcase
     @time = time
-    @typo = typo
   end
 
   def get_result
     { quality: grade,
       efactor: new_efactor,
       interval: next_interval,
-      repeat: next_repeat }
+      repeat: next_repeat,
+      messages: messages }
   end
 
   private
@@ -22,15 +22,15 @@ class SuperMemo
   end
 
   def grade
-    if @cheked_translate && @typo.zero? && @time < 10
+    if check_card? && typo_relative.zero? && @time < 10
       5
-    elsif @cheked_translate && @typo.zero? && @time < 15
+    elsif check_card? && typo_relative.zero? && @time < 15
       4
-    elsif @cheked_translate && (@typo <= 2 || @time < 30)
+    elsif @time < 30 && (check_card? || typo_relative <= 0.33)
       3
-    elsif @typo == 3
+    elsif typo_relative == 0.5
       2
-    elsif @typo > 3
+    elsif typo_relative > 0.5
       1
     else
       0
@@ -49,7 +49,30 @@ class SuperMemo
   end
 
   def next_repeat
-    return 0 if grade < 3
-    @card.repeat + 1
+    grade < 3 ? 0 : (@card.repeat + 1)
+  end
+
+  def check_card?
+    @card.original_text.downcase == @cheked_translate
+  end
+
+  def typo_relative
+    DamerauLevenshtein.distance(@card.original_text, @cheked_translate) / @card.original_text.length.to_f
+  end
+
+  def messages
+    result = {}
+    result[:status] = check_card? ? 'success' : 'wrong'
+    result[:message] = if check_card? && @time > 30
+                         I18n.t('cards.check.too_long')
+                       elsif check_card?
+                         I18n.t('cards.check.right')
+                       elsif typo_relative <= 0.33
+                         I18n.t('cards.check.oops', original_text: @card.original_text,
+                                    check_translate: @cheked_translate)
+                       else
+                         I18n.t('cards.check.wrong')
+                       end
+    result
   end
 end

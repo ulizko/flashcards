@@ -11,23 +11,30 @@ RSpec.describe "Card check", type: :feature do
     click_button I18n.t('layouts.application.login')
   end
   it 'should be Right' do
-    expect(page).to have_content('машина')
-    fill_in :check_check_translate, with: 'Car'
+    expect(page).to have_content('апельсин')
+    fill_in :check_check_translate, with: 'Orange'
     click_button I18n.t('home.form.check_card')
     expect(page).to have_content(I18n.t('cards.check.right'))
   end
 
   it 'should be Oops' do
-    fill_in :check_check_translate, with: 'acr'
+    fill_in :check_check_translate, with: 'oragne'
     click_button I18n.t('home.form.check_card')
     expect(page).to have_content(I18n.t('cards.check.oops',
                                         original_text: card.original_text,
-                                        check_translate: 'acr'))
+                                        check_translate: 'oragne'))
   end
 
   it 'should be Wrong' do
-    fill_in :check_check_translate, with: 'bike'
+    fill_in :check_check_translate, with: 'organo'
     click_button I18n.t('home.form.check_card')
     expect(page).to have_content(I18n.t('cards.check.wrong'))
+  end
+
+  it 'should be Too long' do
+    page.all("input[id='check_time']", :visible => false).first.set(31)
+    fill_in :check_check_translate, with: 'orange'
+    click_button I18n.t('home.form.check_card')
+    expect(page).to have_content(I18n.t('cards.check.too_long'))
   end
 end

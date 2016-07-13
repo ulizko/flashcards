@@ -13,37 +13,30 @@ RSpec.describe Card, type: :model do
     end
   end
 
-  context 'checking card' do
+  describe 'update_review_date' do
     let!(:card) { create(:card) }
     let(:result) { { quality: 4, interval: 1 } }
-
-    describe '#check_card?' do
-      it { expect(card.check_card?('car')).to be_truthy }
+    it 'should set next review date at 1 day' do
+      card.update_review_date!(result)
+      expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 1.day)
     end
 
-    describe 'next_review_date' do
-      it 'should set next review date at 1 day' do
-        card.next_review_date!(result)
-        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 1.day)
-      end
+    it 'should set next review date at 2 days' do
+      result[:interval] = 2
+      card.update_review_date!(result)
+      expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 2.days)
+    end
 
-      it 'should set next review date at 2 days' do
-        result[:interval] = 2
-        card.next_review_date!(result)
-        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 2.days)
-      end
+    it 'should set next review date at 50 days' do
+      result[:interval] = 50
+      card.update_review_date!(result)
+      expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 50.days)
+    end
 
-      it 'should set next review date at 50 days' do
-        result[:interval] = 50
-        card.next_review_date!(result)
-        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour + 50.days)
-      end
-
-      it 'should not change review date' do
-        result[:quality] = 3
-        card.next_review_date!(result)
-        expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour)
-      end
+    it 'should not change review date' do
+      result[:quality] = 3
+      card.update_review_date!(result)
+      expect(card.review_date.beginning_of_hour).to eq(Time.now.beginning_of_hour)
     end
   end
 end

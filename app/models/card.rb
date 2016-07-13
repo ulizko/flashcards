@@ -23,7 +23,7 @@ class Card < ActiveRecord::Base
     self.review_date = Time.now
   end
 
-  def next_review_date!(result = {})
+  def update_review_date!(result = {})
     if result[:quality] == 3
       result = result.except!(:interval, :repeat)
     else
@@ -31,14 +31,6 @@ class Card < ActiveRecord::Base
       result = result.merge(review_date: review_date)
     end
     update_attributes(result)
-  end
-
-  def check_card?(check_translate)
-    original_text.downcase == check_translate.strip.downcase
-  end
-
-  def levenstein(check_translate)
-    DamerauLevenshtein.distance(original_text.downcase, check_translate.strip.downcase)
   end
 
   private

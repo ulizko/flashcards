@@ -39,20 +39,9 @@ class CardsController < ApplicationController
   end
 
   def check
-    typo = @card.levenstein(check_translate)
-    cheked = @card.check_card?(check_translate)
-    if cheked && time > 30
-      flash[:success] = t('.too_long')
-    elsif cheked
-      flash[:success] = t('.right')
-    elsif typo <= 2
-      flash[:success] = t('.oops', original_text: @card.original_text,
-                                  check_translate: check_translate)
-    else
-      flash[:danger] = t('.wrong')
-    end
-    result = SuperMemo.new(@card, cheked, time, typo).get_result
-    @card.next_review_date!(result)
+    result = SuperMemo.new(@card, check_translate, time).get_result
+    flash[result[:messages][:status]] = result[:messages][:message]
+    @card.update_review_date!(result.except!(:messages))
     redirect_to root_path
   end
 
