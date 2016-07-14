@@ -24,12 +24,12 @@ class Card < ActiveRecord::Base
   end
 
   def update_review_date!(result = {})
-    if result[:quality] == 3
-      result = result.except!(:interval, :repeat)
-    else
-      review_date = Time.now + result[:interval].days
-      result = result.merge(review_date: review_date)
-    end
+    result = if result[:quality] == 3
+               result.except!(:interval, :repeat)
+             else
+               review_date = Time.now + result[:interval].days
+               result.merge(review_date: review_date)
+             end
     update_attributes(result)
   end
 

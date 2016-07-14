@@ -1,4 +1,5 @@
 class SuperMemo
+  # Q_SUMMAND[q] = (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02))
   Q_SUMMAND = [-0.8, -0.54, -0.32, -0.14, 0, 0.1].freeze
 
   def initialize(card, check_translate, time)
