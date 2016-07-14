@@ -39,16 +39,9 @@ class CardsController < ApplicationController
   end
 
   def check
-    if @card.check_card?(check_translate)
-      flash[:success] = t('.right')
-      @card.increase_review_date!
-    elsif @card.short_distance?(check_translate)
-      flash[:success] = t('.oops', original_text: @card.original_text, check_translate: check_translate)
-      @card.increase_review_date!
-    else
-      flash[:danger] = t('.wrong')
-      @card.decrease_review_date!
-    end
+    result = SuperMemo.new(@card, check_translate, time).get_result
+    flash[result[:messages][:status]] = result[:messages][:message]
+    @card.update_review_date!(result.except!(:messages))
     redirect_to root_path
   end
 
@@ -65,5 +58,9 @@ class CardsController < ApplicationController
 
   def check_translate
     params[:check][:check_translate]
+  end
+
+  def time
+    params[:check][:time].to_i
   end
 end
