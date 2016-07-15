@@ -85,4 +85,5 @@ Rails.application.configure do
     domain:         ENV['DOMAIN'],
     authentication: :plain
   }
+  config.action_mailer.default_url_options = { host: ENV['DOMAIN'] }
 end
