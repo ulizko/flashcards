@@ -131,6 +131,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    newrelic_rpm (3.16.0.318)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     oauth (0.5.1)
@@ -189,6 +190,8 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    rollbar (2.12.0)
+      multi_json
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -281,12 +284,14 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
+  newrelic_rpm
   nokogiri
   pg
   pry-rails
   rails (= 4.2.5.1)
   rails-i18n (~> 4.0.0)
   rails_12factor
+  rollbar
   rspec-rails (~> 3.0)
   rubocop
   sass-rails (~> 5.0)
