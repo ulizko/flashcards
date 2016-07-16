@@ -61,7 +61,7 @@ class SuperMemo
 
   def messages
     result = {}
-    result[:status] = check_card? ? 'success' : 'wrong'
+    result[:status] = check_card? ? 'success' : 'danger'
     result[:message] = if check_card? && @time > 30
                          I18n.t('cards.check.too_long')
                        elsif check_card?
