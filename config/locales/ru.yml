@@ -65,9 +65,9 @@ ru:
   home:
     index:
       not_authenticated: "Войдите или зарегистрируйтесь"
+    form:
       don't_have_cards: "У Вас пока нет добавленых карточек."
       no_cards_for_review: "На сегодня карточки закончились."
-    form:
       check_card: "Проверить карточку"
       enter_translate: "Введите перевод"
   users:

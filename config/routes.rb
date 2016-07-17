@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
   # get 'show' => 'card#show'
-  resources :cards do
-    member do
-      post :check
-    end
-  end
+  post 'check' => 'home#check'
+  resources :cards
   resources :user_sessions
   resources :users
   resources :decks

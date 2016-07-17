@@ -38,13 +38,6 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
-  def check
-    result = SuperMemo.new(@card, check_translate, time).get_result
-    flash[result[:messages][:status]] = result[:messages][:message]
-    @card.update_review_date!(result.except!(:messages))
-    redirect_to root_path
-  end
-
   private
 
   def card_params
@@ -54,13 +47,5 @@ class CardsController < ApplicationController
 
   def find_card
     @card = Card.find(params[:id])
-  end
-
-  def check_translate
-    params[:check][:check_translate]
-  end
-
-  def time
-    params[:check][:time].to_i
   end
 end
