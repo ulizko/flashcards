@@ -1,17 +1,24 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  # get 'show' => 'card#show'
-  post 'check' => 'home#check'
-  resources :cards
-  resources :user_sessions
-  resources :users
-  resources :decks
+  root 'application#welcome'
+  scope module: 'dashboard' do
+    get 'index' => 'review#index'
+    post 'check' => 'review#check'
+    resources :cards
+    resources :user_sessions, only: [:destroy]
+    resources :users, only: [:edit, :update]
+    resources :decks
+    delete 'logout' => 'user_sessions#destroy', :as => :logout
+  end
+  
+  scope module: 'home' do
+    resources :user_sessions, only: [:new, :create]
+    resources :users, only: [:new, :create]
+    get 'login' => 'user_sessions#new', :as => :login
+    post "oauth/callback" => "oauths#callback"
+    get "oauth/callback" => "oauths#callback"
+    get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  end
 
-  get 'login' => 'user_sessions#new', :as => :login
-  delete 'logout' => 'user_sessions#destroy', :as => :logout
-  post "oauth/callback" => "oauths#callback"
-  get "oauth/callback" => "oauths#callback"
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

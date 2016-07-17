@@ -13,28 +13,28 @@ RSpec.describe "Card check", type: :feature do
   it 'should be Right' do
     expect(page).to have_content('апельсин')
     fill_in :check_check_translate, with: 'Orange'
-    click_button I18n.t('home.form.check_card')
-    expect(page).to have_content(I18n.t('cards.check.right'))
+    click_button I18n.t('dashboard.review.form.check_card')
+    expect(page).to have_content(I18n.t('dashboard.review.check.right'))
   end
 
   it 'should be Oops' do
     fill_in :check_check_translate, with: 'oragne'
-    click_button I18n.t('home.form.check_card')
-    expect(page).to have_content(I18n.t('cards.check.oops',
+    click_button I18n.t('dashboard.review.form.check_card')
+    expect(page).to have_content(I18n.t('dashboard.review.check.oops',
                                         original_text: card.original_text,
                                         check_translate: 'oragne'))
   end
 
   it 'should be Wrong' do
     fill_in :check_check_translate, with: 'organo'
-    click_button I18n.t('home.form.check_card')
-    expect(page).to have_content(I18n.t('cards.check.wrong'))
+    click_button I18n.t('dashboard.review.form.check_card')
+    expect(page).to have_content(I18n.t('dashboard.review.check.wrong'))
   end
 
   it 'should be Too long' do
     page.all("input[id='check_time']", visible: false).first.set(31)
     fill_in :check_check_translate, with: 'orange'
-    click_button I18n.t('home.form.check_card')
-    expect(page).to have_content(I18n.t('cards.check.too_long'))
+    click_button I18n.t('dashboard.review.form.check_card')
+    expect(page).to have_content(I18n.t('dashboard.review.check.too_long'))
   end
 end

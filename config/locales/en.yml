@@ -26,35 +26,9 @@ en:
     delete: "Delete"
     back: "Back"
     add_new_deck: "Add new deck"
-  cards:
-    index: 
-      all_cards: "All cards"
-    create:
-      successful_create_card: "Card successful create"
-    check:
-      right: "Right. Let's check next card."
-      oops: "Oops! Your answer is correct, but you made a typo. Right translate: %{original_text}, you typed: %{check_translate}"
-      wrong: "Wrong! Try another card."
-      too_long: "Your answer is right. But you think too long. You should repeat."
-    form:
-      action_card: "%{action} card"
-      edit: "Update"
-      new: "Create"
-      create: "Create"
-      name: "Deck"
-  decks:
-    index:
-      unset: "Unset %{current}"
-      set: "Set %{current}"
-      current: "current"
-    update:
-      successful_set_current: "Current deck successful changed"
-    form:
-      action_deck: "%{action} deck"
-      edit: "Update"
-      new: "Create"
-    create:
-      successful_create_deck: "Deck successful create"
+  application:
+    welcome:
+      not_authenticated: "Please login first"
   layouts:
     application:
       register: "Register"
@@ -67,46 +41,78 @@ en:
       all_cards: "All cards"
       my_decks: "My decks"
       add_card: "Add card"
-  user_sessions:
-    form:
-      login: "Login"
-      email: "Email"
-      password: "Password"
-    new:
-      login_with_: "Login with %{provider}"
-      login: "Login"
-    create:
-      login_successful: "Login successful"
-      login_failed: "Login failed"
-      logged_out: "Logged out"
-  oauths:
-    callback:
-      logged_in_from: "You logged from %{provider}"
-      failed_login_from: "Failed login from %{provider}"
+  dashboard:
+    cards:
+      index: 
+        all_cards: "All cards"
+      create:
+        successful_create_card: "Card successful create"
+      form:
+        action_card: "%{action} card"
+        edit: "Update"
+        new: "Create"
+        create: "Create"
+        name: "Deck"
+    decks:
+      index:
+        unset: "Unset %{current}"
+        set: "Set %{current}"
+        current: "current"
+      update:
+        successful_set_current: "Current deck successful changed"
+      form:
+        action_deck: "%{action} deck"
+        edit: "Update"
+        new: "Create"
+      create:
+        successful_create_deck: "Deck successful create"
+    users:
+      update:
+        profile_updated: "Profile was updated!"
+    review:
+      check:
+        right: "Right. Let's check next card."
+        oops: "Oops! Your answer is correct, but you made a typo. Right translate: %{original_text}, you typed: %{check_translate}"
+        wrong: "Wrong! Try another card."
+        too_long: "Your answer is right. But you think too long. You should repeat."
+      form:
+        don't_have_cards: "You don't have added cards."
+        no_cards_for_review: "On today no more cards."
+        check_card: "Check card"
+        enter_translate: "Enter translate"
+    user_sessions:
+      destroy:
+        logged_out: "Logged out"
   home:
-    index:
-      not_authenticated: "Please login first"
-    form:
-      don't_have_cards: "You don't have added cards."
-      no_cards_for_review: "On today no more cards."
-      check_card: "Check card"
-      enter_translate: "Enter translate"
-  users:
-    new:
-      register: "Register"
-    create:
-      welcome: "Welcome!"
-    form:
-      login: "Login"
-      email: "Email"
-      password: "Password"
-      confirmation: "Password confirmation"
-      langauge: "Langauge"
-      action_user: "%{action} user"
-      edit: "Edit"
-      new: "Create"
-    update:
-      profile_updated: "Profile was updated!"
+    user_sessions:
+      form:
+        login: "Login"
+        email: "Email"
+        password: "Password"
+      new:
+        login_with_: "Login with %{provider}"
+        login: "Login"
+      create:
+        login_successful: "Login successful"
+        login_failed: "Login failed"
+    users:
+      new:
+        register: "Register"
+      create:
+        welcome: "Welcome!"
+      form:
+        login: "Login"
+        email: "Email"
+        password: "Password"
+        confirmation: "Password confirmation"
+        langauge: "Langauge"
+        action_user: "%{action} user"
+        edit: "Edit"
+        new: "Create"
+    oauths:
+      callback:
+        logged_in_from: "You logged from %{provider}"
+        failed_login_from: "Failed login from %{provider}"
   notifications_mailer:
     pending_cards:
       subject: "Not reviewed cards"

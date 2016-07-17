@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class Dashboard::ReviewController < ApplicationController
   before_filter :find_card, only: [:check]
 
   def index
