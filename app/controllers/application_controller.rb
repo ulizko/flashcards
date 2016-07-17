@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def welcome
-     redirect_to index_path if current_user
+    redirect_to index_path if current_user
   end
 
   private

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :decks
     delete 'logout' => 'user_sessions#destroy', :as => :logout
   end
-  
+
   scope module: 'home' do
     resources :user_sessions, only: [:new, :create]
     resources :users, only: [:new, :create]
