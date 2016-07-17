@@ -1,5 +1,14 @@
-<%= simple_form_for :check, url: check_card_path(@card) do |f| %>
-  <%= f.input :check_translate, label: t('.enter_translate'), autocomplete: false %>
-  <%= f.hidden_field :time %>
-  <%= f.button :submit, t('.check_card')  %>
+<% if current_user.cards.blank? %>
+  <%= render text: content_tag(:h1, t('.don\'t_have_cards'), class: "text-center") %>
+<% elsif @card.blank? %>
+  <%= render text: content_tag(:h1, t('.no_cards_for_review'), class: "text-center") %>
+<% else %>
+  <%= simple_form_for :check, url: check_path(@card), remote: true do |f| %>
+    <%= image_tag(@card.image_url, class: "text-center bg-info")  %>
+    <%= content_tag(:h1, @card.translated_text, class: "text-center bg-info", id: 'translated_text')  %>
+    <%= f.input :check_translate, label: t('.enter_translate'), autocomplete: false %>
+    <%= f.hidden_field :time %>
+    <%= f.hidden_field :id, value: @card.id %>
+    <%= f.button :submit, t('.check_card'), id: 'check_card'  %>
+  <% end %>
 <% end %>

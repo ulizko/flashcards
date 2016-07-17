@@ -12,19 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
-var seconds = 0;
-function myTimer(selector) {
-    seconds++;
-    $(selector).text(seconds);
-  }
-$(document).ready(function(){
-  var interval = setInterval(myTimer, 1000, '#timer');
-  // myTimer('#timer');
-  $('.btn').click(function() {
-    time = $('#timer').html();
-    $('#check_time').val(time);
-    clearInterval(interval);
-  });
-});

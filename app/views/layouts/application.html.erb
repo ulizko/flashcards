@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Флэшкарточкер</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -44,9 +44,7 @@
       <% end %>
     </header>
     <section class="message">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value.html_safe %></div>
-      <% end %>
+      <%= render 'shared/messages' %>
     </section>
 
     <section>

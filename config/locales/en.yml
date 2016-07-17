@@ -86,9 +86,9 @@ en:
   home:
     index:
       not_authenticated: "Please login first"
+    form:
       don't_have_cards: "You don't have added cards."
       no_cards_for_review: "On today no more cards."
-    form:
       check_card: "Check card"
       enter_translate: "Enter translate"
   users:

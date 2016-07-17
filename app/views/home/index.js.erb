@@ -1,0 +1,3 @@
+$('.message').html("<%= j (render 'shared/messages') %>");
+$('#check_form').html("<%= j (render 'form', card: @card) %>");
+myTimer('#check_card');
