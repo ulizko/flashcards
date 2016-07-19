@@ -25,3 +25,4 @@ public/assets/*
 /1000
 /.rubocop.yml
 /.env
+config/provision/keys/*
