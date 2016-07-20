@@ -23,6 +23,7 @@ gem 'rollbar'
 gem 'newrelic_rpm'
 
 group :production do
+  gem 'puma'
   gem 'rails_12factor'
 end
 
@@ -40,6 +41,10 @@ group :development do
   gem 'nokogiri'
   gem 'rubocop'
   gem 'pry-rails'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
 end
 
 group :test do
