@@ -87,6 +87,7 @@ ru:
         confirmation: "Подтверждение пароля"
         langauge: "Язык"
         action_user: "%{action} пользователя"
+        update: "Обновить"
         edit: "Обновить"
         new: "Создать"
     oauths:

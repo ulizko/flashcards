@@ -108,7 +108,8 @@ en:
         confirmation: "Password confirmation"
         langauge: "Langauge"
         action_user: "%{action} user"
-        edit: "Edit"
+        update: "Update"
+        edit: "Update"
         new: "Create"
     oauths:
       callback:

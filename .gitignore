@@ -28,3 +28,4 @@ public/assets/*
 /.env
 /.env.production
 config/provision/keys/*
+config/provision/configs/settings.yml
