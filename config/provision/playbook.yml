@@ -144,6 +144,9 @@
     # Rails setup | копируем settings.yml с нашими настройками
     - name: 'rails | copy settings.yml'
       copy: 'src=configs/settings.yml dest={{ application }}/shared/config/settings.yml owner={{ user }} group={{ user }} mode=0644'
+      
+    - name: 'rails | copy settings.yml'
+      copy: 'src=../../.env.production dest={{ application }}/shared/.env.production owner={{ user }} group={{ user }} mode=0644'
 
     # Установка и настройка веб сервера nginx
     - name: 'nginx | check config'
