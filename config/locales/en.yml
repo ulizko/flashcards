@@ -58,6 +58,7 @@ en:
         unset: "Unset %{current}"
         set: "Set %{current}"
         current: "current"
+        my_decks: "My decks"
       update:
         successful_set_current: "Current deck successful changed"
       form:

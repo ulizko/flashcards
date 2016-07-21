@@ -37,6 +37,7 @@ ru:
         unset: "Снять %{current}"
         set: "Установить %{current}"
         current: "текущую"
+        my_decks: "Мои колоды"
       update:
         successful_set_current: "Текущая колода успешно изменена"
       form:

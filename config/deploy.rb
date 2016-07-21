@@ -7,11 +7,11 @@
 
 set :application, 'flashcards'
 set :repo_url, 'https://github.com/ulizko/flashcards.git'
-set :branch, 'master'
+set :branch, '20th-task'
 set :deploy_to, '/home/deploy/applications/flashcards'
 
 set :log_level, :info
-set :linked_files, %w{config/database.yml config/settings.yml .env}
+set :linked_files, %w{config/database.yml config/settings.yml .env.production}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads}
 
 set :rbenv_type, :user
