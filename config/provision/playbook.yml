@@ -148,8 +148,8 @@
     - name: 'rails | copy .env.production'
       copy: 'src=../../.env.production dest={{ application }}/shared/.env.production owner={{ user }} group={{ user }} mode=0644'
       
-    - name: 'rails | copy secret.yml'
-      copy: 'src=../config/secret.yml dest={{ application }}/shared/config/secret.yml owner={{ user }} group={{ user }} mode=0644'
+    - name: 'rails | copy secrets.yml'
+      copy: 'src=../../config/secrets.yml dest={{ application }}/shared/config/secrets.yml owner={{ user }} group={{ user }} mode=0644'
 
     # Установка и настройка веб сервера nginx
     - name: 'nginx | check config'
