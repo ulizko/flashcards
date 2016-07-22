@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   before_filter :set_locale
 
+  def welcome
+    redirect_to index_path if current_user
+  end
+
   private
 
   def set_locale

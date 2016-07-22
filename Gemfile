@@ -21,8 +21,10 @@ gem 'http_accept_language'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'rollbar'
 gem 'newrelic_rpm'
+gem 'dotenv-rails', :groups => [:development, :test, :production]
 
 group :production do
+  gem 'puma'
   gem 'rails_12factor'
 end
 
@@ -31,7 +33,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem 'spring-commands-rspec'
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -40,6 +41,10 @@ group :development do
   gem 'nokogiri'
   gem 'rubocop'
   gem 'pry-rails'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
 end
 
 group :test do

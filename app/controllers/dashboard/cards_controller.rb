@@ -1,4 +1,4 @@
-class CardsController < ApplicationController
+class Dashboard::CardsController < ApplicationController
   before_filter :find_card, except: [:new, :create, :index]
 
   def new

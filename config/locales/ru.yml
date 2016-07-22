@@ -5,35 +5,9 @@ ru:
     delete: "Удалить"
     back: "Назад"
     add_new_deck: "Добавить новую колоду"
-  cards:
-    index: 
-      all_cards: "Все карточки"
-    create:
-      successful_create_card: "Карточка успешно создана"
-    check:
-      right: "Верно! Давай проверим следующую карточку"
-      oops: "Ой! Твой ответ верный, но ты сделал опечатку. Правильный перевод: %{original_text}, твой ответ: %{check_translate}"
-      wrong: "Неверно! Попробуй следующую карточку"
-      too_long: "Ты ответил правильно. Но ты слишком долго думал. Придется повторить."
-    form:
-      action_card: "%{action} карточку"
-      edit: "Обновить"
-      new: "Создать"
-      create: "Создать"
-      name: "Имя колоды"
-  decks:
-    index:
-      unset: "Снять %{current}"
-      set: "Установить %{current}"
-      current: "текущую"
-    update:
-      successful_set_current: "Текущая колода успешно изменена"
-    form:
-      action_deck: "%{action} колоду"
-      edit: "Обновить"
-      new: "Создать"
-    create:
-      successful_create_deck: "Колода успешно создана"
+  application:
+    welcome:
+      not_authenticated: "Войдите или зарегистрируйтесь"
   layouts:
     application:
       register: "Зарегистрироваться"
@@ -46,46 +20,81 @@ ru:
       all_cards: "Все карточки"
       my_decks: "Мои колоды"
       add_card: "Добавить карточку"
-  user_sessions:
-    form:
-      login: "Войти"
-      email: "Емэйл"
-      password: "Пароль"
-    new:
-      login_with_: "Войти через %{provider}"
-      login: "Войти"
-    create:
-      login_successful: "Удачный вход"
-      login_failed: "Неудачный вход"
-      logged_out: "Вы вышли"
-  oauths:
-    callback:
-      logged_in_from: "Вы вошли через %{provider}"
-      failed_login_from: "Неудачный вход через %{provider}"
+  dashboard:
+    cards:
+      index: 
+        all_cards: "Все карточки"
+      create:
+        successful_create_card: "Карточка успешно создана"
+      form:
+        action_card: "%{action} карточку"
+        edit: "Обновить"
+        new: "Создать"
+        create: "Создать"
+        name: "Имя колоды"
+    decks:
+      index:
+        my_decks: "Мои колоды"
+      update:
+        successful_set_current: "Текущая колода успешно изменена"
+      form:
+        action_deck: "%{action} колоду"
+        edit: "Обновить"
+        new: "Создать"
+      table:
+        unset: "Снять %{current}"
+        set: "Установить %{current}"
+        current: "текущую"
+      create:
+        successful_create_deck: "Колода успешно создана"
+    users:
+      update:
+        profile_updated: "Профиль обновлен"
+    review:
+      check:
+        right: "Верно! Давай проверим следующую карточку"
+        oops: "Ой! Твой ответ верный, но ты сделал опечатку. Правильный перевод: %{original_text}, твой ответ: %{check_translate}"
+        wrong: "Неверно! Попробуй следующую карточку"
+        too_long: "Ты ответил правильно. Но ты слишком долго думал. Придется повторить."
+      form:
+        don't_have_cards: "У Вас пока нет добавленых карточек."
+        no_cards_for_review: "На сегодня карточки закончились."
+        check_card: "Проверить карточку"
+        enter_translate: "Введите перевод"
+    user_sessions:
+      destroy:
+        logged_out: "Вы вышли"
   home:
-    index:
-      not_authenticated: "Войдите или зарегистрируйтесь"
-    form:
-      don't_have_cards: "У Вас пока нет добавленых карточек."
-      no_cards_for_review: "На сегодня карточки закончились."
-      check_card: "Проверить карточку"
-      enter_translate: "Введите перевод"
-  users:
-    new:
-      register: "Зарегистрироваться"
-    create:
-      welcome: "Добро пожаловать!"
-    form:
-      login: "Войти"
-      email: "Емэйл"
-      password: "Пароль"
-      confirmation: "Подтверждение пароля"
-      langauge: "Язык"
-      action_user: "%{action} пользователя"
-      edit: "Обновить"
-      new: "Создать"
-    update:
-      profile_updated: "Профиль обновлен"
+    user_sessions:
+      form:
+        login: "Войти"
+        email: "Емэйл"
+        password: "Пароль"
+      new:
+        login_with_: "Войти через %{provider}"
+        login: "Войти"
+      create:
+        login_successful: "Удачный вход"
+        login_failed: "Неудачный вход"
+    users:
+      create:
+        welcome: "Добро пожаловать!"
+      new:
+        register: "Зарегистрироваться"
+      form:
+        login: "Войти"
+        email: "Емэйл"
+        password: "Пароль"
+        confirmation: "Подтверждение пароля"
+        langauge: "Язык"
+        action_user: "%{action} пользователя"
+        update: "Обновить"
+        edit: "Обновить"
+        new: "Создать"
+    oauths:
+      callback:
+        logged_in_from: "Вы вошли через %{provider}"
+        failed_login_from: "Неудачный вход через %{provider}"
   notifications_mailer:
     pending_cards:
       subject: "Непросмотренные карточки"

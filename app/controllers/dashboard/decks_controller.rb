@@ -1,4 +1,4 @@
-class DecksController < ApplicationController
+class Dashboard::DecksController < ApplicationController
   before_filter :find_deck, except: [:new, :create, :index]
 
   def index

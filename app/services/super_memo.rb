@@ -63,14 +63,14 @@ class SuperMemo
     result = {}
     result[:status] = check_card? ? 'success' : 'danger'
     result[:message] = if check_card? && @time > 30
-                         I18n.t('cards.check.too_long')
+                         I18n.t('dashboard.review.check.too_long')
                        elsif check_card?
-                         I18n.t('cards.check.right')
+                         I18n.t('dashboard.review.check.right')
                        elsif typo_relative <= 0.33
-                         I18n.t('cards.check.oops', original_text: @card.original_text,
+                         I18n.t('dashboard.review.check.oops', original_text: @card.original_text,
                                     check_translate: @cheked_translate)
                        else
-                         I18n.t('cards.check.wrong')
+                         I18n.t('dashboard.review.check.wrong')
                        end
     result
   end

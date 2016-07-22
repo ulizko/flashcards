@@ -18,6 +18,7 @@
 /tmp
 
 config/database.yml
+config/secrets.yml
 spring-1000/*
 lib/templates/*
 public/uploads/*
@@ -25,3 +26,7 @@ public/assets/*
 /1000
 /.rubocop.yml
 /.env
+/.env.production
+config/provision/keys/*
+config/provision/configs/settings.yml
+config/provision/playbook.retry 

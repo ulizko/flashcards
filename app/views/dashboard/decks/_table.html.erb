@@ -1,4 +1,3 @@
-<h1 class="text-center">Мои колоды</h1>
 <table class="table table-bordered">
   <tbody>
     <% @decks.each do |deck| %>
@@ -10,7 +9,7 @@
         <%= t('activerecord.models.card', count: deck.cards.count) %>
       </td>
       <td class="col-md-1">
-      <%= form_tag deck_path(deck), method: :put do %>
+      <%= form_tag deck_path(deck), method: :put, remote: true do %>
         <%= hidden_field_tag 'deck[id]', deck.id %>
         <%= submit_tag "#{deck.current ? t('.unset', current: t('.current')) : t('.set', current: t('.current'))}", class: "btn btn-info btn-block" %>
       <% end %>
@@ -22,4 +21,3 @@
     </tr>
   </tbody>
 </table>
-<%= link_to t('defaults.add_new_deck'), new_deck_path %>
