@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+  <tbody>
+    <% @decks.each do |deck| %>
+    <tr class = "<%= 'info' if deck.current %>">
+      <td class="col-md-5">
+        <h4><%= deck.name %></h4>
+      </td>
+      <td>
+        <%= t('activerecord.models.card', count: deck.cards.count) %>
+      </td>
+      <td class="col-md-1">
+      <%= form_tag deck_path(deck), method: :put, remote: true do %>
+        <%= hidden_field_tag 'deck[id]', deck.id %>
+        <%= submit_tag "#{deck.current ? t('.unset', current: t('.current')) : t('.set', current: t('.current'))}", class: "btn btn-info btn-block" %>
+      <% end %>
+      </td>
+      <td class="col-md-1">
+        <%= link_to t('defaults.show'), deck_path(deck) %>
+      </td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>

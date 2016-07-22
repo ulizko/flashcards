@@ -20,6 +20,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :rbenv_roles, :all
 
 set :puma_init_active_record, true
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 desc 'Run rake tasks on server'
 task :rake do

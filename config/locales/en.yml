@@ -55,9 +55,6 @@ en:
         name: "Deck"
     decks:
       index:
-        unset: "Unset %{current}"
-        set: "Set %{current}"
-        current: "current"
         my_decks: "My decks"
       update:
         successful_set_current: "Current deck successful changed"
@@ -65,6 +62,10 @@ en:
         action_deck: "%{action} deck"
         edit: "Update"
         new: "Create"
+      table:
+        unset: "Unset %{current}"
+        set: "Set %{current}"
+        current: "current"
       create:
         successful_create_deck: "Deck successful create"
     users:

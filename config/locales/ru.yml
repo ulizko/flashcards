@@ -34,9 +34,6 @@ ru:
         name: "Имя колоды"
     decks:
       index:
-        unset: "Снять %{current}"
-        set: "Установить %{current}"
-        current: "текущую"
         my_decks: "Мои колоды"
       update:
         successful_set_current: "Текущая колода успешно изменена"
@@ -44,6 +41,10 @@ ru:
         action_deck: "%{action} колоду"
         edit: "Обновить"
         new: "Создать"
+      table:
+        unset: "Снять %{current}"
+        set: "Установить %{current}"
+        current: "текущую"
       create:
         successful_create_deck: "Колода успешно создана"
     users:
