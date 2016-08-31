@@ -38,7 +38,7 @@ class SuperMemo
 
   def next_interval
     return 1 if grade < 3
-    if @card.repeat == 0
+    if @card.repeat.zero?
       1
     elsif @card.repeat == 1
       6

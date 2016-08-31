@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -22,27 +21,25 @@ ActiveRecord::Schema.define(version: 20160710030303) do
     t.string   "uid",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
   end
-
-  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
 
   create_table "cards", force: :cascade do |t|
     t.string   "original_text"
     t.string   "translated_text"
     t.datetime "review_date"
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.integer  "user_id"
     t.string   "image"
     t.integer  "deck_id"
-    t.integer  "repeat",                                  default: 0,   null: false
-    t.decimal  "efactor",         precision: 3, scale: 2, default: 2.5
+    t.integer  "repeat",                                  default: 0,     null: false
+    t.decimal  "efactor",         precision: 3, scale: 2, default: "2.5"
     t.integer  "quality",                                 default: 0
     t.integer  "interval",                                default: 0
+    t.index ["deck_id"], name: "index_cards_on_deck_id", using: :btree
+    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
   end
-
-  add_index "cards", ["deck_id"], name: "index_cards_on_deck_id", using: :btree
-  add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
 
   create_table "decks", force: :cascade do |t|
     t.string   "name"
@@ -50,10 +47,9 @@ ActiveRecord::Schema.define(version: 20160710030303) do
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.index ["current", "user_id"], name: "index_decks_on_current_and_user_id", using: :btree
+    t.index ["user_id"], name: "index_decks_on_user_id", using: :btree
   end
-
-  add_index "decks", ["current", "user_id"], name: "index_decks_on_current_and_user_id", using: :btree
-  add_index "decks", ["user_id"], name: "index_decks_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",            null: false
@@ -62,9 +58,8 @@ ActiveRecord::Schema.define(version: 20160710030303) do
     t.datetime "updated_at"
     t.string   "salt"
     t.string   "locale"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   add_foreign_key "cards", "decks"
   add_foreign_key "cards", "users"
