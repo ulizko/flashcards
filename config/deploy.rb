@@ -7,7 +7,7 @@
 
 set :application, 'flashcards'
 set :repo_url, 'https://github.com/ulizko/flashcards.git'
-set :branch, 'UpdateRails'
+set :branch, 'master'
 set :deploy_to, '/home/deploy/applications/flashcards'
 
 set :log_level, :info
