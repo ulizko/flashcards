@@ -1,11 +1,11 @@
 module Home
   class OauthsController < ApplicationController
     skip_before_action :require_login
-  
+
     def oauth
       login_at(params[:provider])
     end
-  
+
     def callback
       provider = params[:provider]
       if @user = login_from(provider)
@@ -24,9 +24,9 @@ module Home
         end
       end
     end
-  
+
     private
-  
+
     def auth_params
       params.permit(:code, :provider)
     end
