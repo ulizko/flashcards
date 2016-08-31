@@ -29,4 +29,5 @@ public/assets/*
 /.env.production
 config/provision/keys/*
 config/provision/configs/settings.yml
-config/provision/playbook.retry 
+config/provision/playbook.retry
+coverage/
