@@ -9,7 +9,7 @@ module Home
     def create
       if @user = login(params[:email], params[:password])
         flash[:success] = t('.login_successful')
-        redirect_back_or_to :users
+        redirect_back_or_to root_path
       else
         flash.now[:danger] = t('.login_failed')
         render action: 'new'

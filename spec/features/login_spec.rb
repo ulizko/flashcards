@@ -1,10 +1,11 @@
 require "rails_helper"
 
 RSpec.describe 'Login', type: :feature do
-  context 'Not login' do
-    before(:each) { visit root_path }
+  context 'when not login' do
+    before(:each) { visit login_path }
 
     it 'should be not login' do
+      visit cards_path
       expect(page).to have_content('Please login first')
     end
 
@@ -17,10 +18,10 @@ RSpec.describe 'Login', type: :feature do
     end
   end
 
-  context 'Login' do
+  context 'when login' do
     let!(:user) { create(:user, email: 'example@email.com') }
     it 'should be autorization' do
-      visit root_path
+      visit login_path
       fill_in :email, with: 'example@email.com'
       fill_in :password, with: 'qwerty123'
       click_button 'Login'

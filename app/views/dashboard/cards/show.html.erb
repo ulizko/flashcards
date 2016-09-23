@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       <td class ='text-center' rowspan = '2'>
-        <%= image_tag(@card.image.thumb.url) %>
+        <%= image_tag(@card.image.thumb.url) unless @card.image.blank? %>
       </td>
       <td class ='text-center' rowspan = '2'>
         <%= @card.original_text %>

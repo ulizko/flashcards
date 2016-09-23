@@ -22,6 +22,8 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'dotenv-rails', :groups => [:development, :test, :production]
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 group :production do
   gem 'puma'

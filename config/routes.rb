@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'application#welcome'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   scope module: 'dashboard' do
     get 'index' => 'review#index'
     post 'check' => 'review#check'
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   scope module: 'home' do
+    root 'main#welcome'
     resources :user_sessions, only: [:new, :create]
     resources :users, only: [:new, :create]
     get 'login' => 'user_sessions#new', :as => :login
