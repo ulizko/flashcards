@@ -3,7 +3,7 @@
     <% @cards.each do |card| %>
     <tr>
       <td rowspan = '3'>
-        <%= image_tag(card.image.thumb.url) %>
+        <%= image_tag(card.image.thumb.url) unless card.image.blank? %>
       </td>
       <td rowspan = '3'>
         <%= card.original_text %>

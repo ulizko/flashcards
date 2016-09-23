@@ -26,9 +26,7 @@ en:
     delete: "Delete"
     back: "Back"
     add_new_deck: "Add new deck"
-  application:
-    welcome:
-      not_authenticated: "Please login first"
+    not_authenticated: "Please login first"
   layouts:
     application:
       register: "Register"

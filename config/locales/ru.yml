@@ -5,9 +5,7 @@ ru:
     delete: "Удалить"
     back: "Назад"
     add_new_deck: "Добавить новую колоду"
-  application:
-    welcome:
-      not_authenticated: "Войдите или зарегистрируйтесь"
+    not_authenticated: "Войдите или зарегистрируйтесь"
   layouts:
     application:
       register: "Зарегистрироваться"
@@ -104,14 +102,14 @@ ru:
     models:
       card:
         zero: "Нет карточек"
-        one: "%{count} карточка"
+        one: 1 карточка"
         few: "%{count} карточки"
-        many: "%{count} карточек"
+        other: "%{count} карточек"
       deck:
         zero: "Нет колод"
         one: "%{count} колода"
         few: "%{count} колоды"
-        many: "%{count} колод"
+        other: "%{count} колод"
     attributes:
       card:
         translated_text: "Перевод"

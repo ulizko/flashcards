@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   before_action :set_locale
 
-  def welcome
-    redirect_to index_path if current_user
-  end
-
   private
 
   def set_locale
@@ -27,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def not_authenticated
-    flash[:danger] = t('.not_authenticated')
+    flash[:danger] = t('defaults.not_authenticated')
     redirect_to login_path
   end
 end
