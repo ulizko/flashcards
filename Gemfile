@@ -24,6 +24,7 @@ gem 'newrelic_rpm'
 gem 'dotenv-rails', :groups => [:development, :test, :production]
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
+gem "rolify"
 
 group :production do
   gem 'puma'

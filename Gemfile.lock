@@ -254,6 +254,7 @@ GEM
     rake (11.2.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    rolify (5.1.0)
     rollbar (2.12.0)
       multi_json
     rspec-core (3.5.3)
@@ -372,6 +373,7 @@ DEPENDENCIES
   rails_12factor
   rails_admin (>= 1.0.0.rc)
   remotipart!
+  rolify
   rollbar
   rspec-rails
   rubocop
