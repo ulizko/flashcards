@@ -18,7 +18,7 @@ gem "fog-aws"
 gem 'damerau-levenshtein'
 gem 'whenever', require: false
 gem 'http_accept_language'
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails-i18n', '~> 5.0.0'
 gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'dotenv-rails', :groups => [:development, :test, :production]

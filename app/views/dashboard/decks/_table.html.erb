@@ -6,7 +6,7 @@
         <h4><%= deck.name %></h4>
       </td>
       <td>
-        <%= t('activerecord.models.card', count: deck.cards.count) %>
+        <%= "#{deck.cards.count unless deck.cards.count.zero?} #{Card.model_name.human(count: deck.cards.count)}" %>
       </td>
       <td class="col-md-1">
       <%= form_tag deck_path(deck), method: :put, remote: true do %>

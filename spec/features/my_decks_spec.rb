@@ -6,7 +6,7 @@ RSpec.describe 'My decks', type: :feature do
   let!(:card) { create(:card, deck: deck) }
 
   before(:each) do
-    visit root_path
+    visit login_path
     fill_in :email, with: 'example@email.com'
     fill_in :password, with: 'qwerty123'
     click_button 'Login'
