@@ -102,14 +102,26 @@ ru:
     models:
       card:
         zero: "Нет карточек"
-        one: 1 карточка"
-        few: "%{count} карточки"
-        other: "%{count} карточек"
+        one: "карточка"
+        few: "карточки"
+        many: "карточек"
+        other: "карточки"
       deck:
         zero: "Нет колод"
-        one: "%{count} колода"
-        few: "%{count} колоды"
-        other: "%{count} колод"
+        one: "колода"
+        few: "колоды"
+        many: "колод"
+        other: "колоды"
+      role:
+        one: "роль"
+        few: "роли"
+        many: "ролей"
+        other: "роли"
+      user:
+        one: "пользователь"
+        few: "пользователя"
+        many: "пользователей"
+        other: "пользователи"
     attributes:
       card:
         translated_text: "Перевод"

@@ -123,12 +123,18 @@ en:
     models:
       card:
         zero: "No cards"
-        one: "%{count} card"
-        other: "%{count} cards"
+        one: "card"
+        other: "cards"
       deck:
         zero: "No decks"
-        one: "%{count} deck"
-        other: "%{count} decks"
+        one: "deck"
+        other: "decks"
+      role:
+        one: "role"
+        other: "roles"
+      user:
+        one: "user"
+        other: "users"
     attributes:
       card:
         translated_text: "Translate"

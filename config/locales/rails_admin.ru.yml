@@ -1,10 +1,6 @@
 # 02.03.2016 Перевод gem rails_admin ~> 0.8
 
 ru:
-  card: 'Карточка'
-  deck: 'Колода'
-  user: 'Пользователь'
-  role: 'Роль'
   admin:
     js:
       true: 'True'

@@ -12,7 +12,7 @@ module Home
         redirect_back_or_to root_path
       else
         flash.now[:danger] = t('.login_failed')
-        render action: 'new'
+        render :new
       end
     end
   end
