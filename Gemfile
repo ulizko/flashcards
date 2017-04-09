@@ -2,11 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '5.0.1'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'jbuilder'
 gem 'pg'
 gem 'simple_form'
 gem 'sorcery'
@@ -22,8 +21,7 @@ gem 'rails-i18n', '~> 5.0.1'
 gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'dotenv-rails', :groups => [:development, :test, :production]
-gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_admin', '>= 1.0.0.rc'
+gem 'rails_admin', '>= 1.1.1'
 gem "rolify"
 
 group :production do
