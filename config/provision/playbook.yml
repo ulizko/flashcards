@@ -1,12 +1,12 @@
 ---
 - hosts: 'all'
   remote_user: 'ubuntu'
-  sudo: 'yes'
+  become: 'yes'
 
   # В данном блоке объявляются переменные, которые будут использоваться в playbook и конфигах, представленных выше
   vars:
     # Версия ruby
-    ruby_version: '2.3.0'
+    ruby_version: '2.3.1'
     # Пользователь, от лица которого будет происходит деплой
     user: 'deploy'
     # Домашняя директория
@@ -51,16 +51,22 @@
     - name: 'account | create'
       user: 'name={{ user }} shell=/bin/bash'
 
-    # - name: 'account | copy authorized keys'
-    #   # shell - это модуль Ansible, который позволяет выполнять обычные bash команды
-    #   shell: 'mkdir -p {{ home }}/.ssh -m 700 && cp /root/.ssh/authorized_keys {{ home }}/.ssh && chown -R {{ user }}:{{ user }} {{ home }}/.ssh'
+    - name: 'account | create .ssh'
+      file:
+        path: '{{ home }}/.ssh'
+        state: 'directory'
+        owner: "{{ user }}"
 
-    # - name: 'account | copy ssh private key'
-    #   # Модуль copy просто берёт и копирует файл из папки src в папку dest
-    #   copy: 'src=keys/id_rsa dest={{ home }}/.ssh/id_rsa owner={{ user }} group={{ user }} mode=0600'
+    - name: 'account | copy authorized keys'
+      # shell - это модуль Ansible, который позволяет выполнять обычные bash команды
+      shell: 'cp /home/ubuntu/.ssh/authorized_keys {{ home }}/.ssh && chown -R {{ user }}:{{ user }} {{ home }}/.ssh'
 
-    # - name: 'account | copy ssh public key'
-      # copy: 'src=keys/id_rsa.pub dest={{ home }}/.ssh/id_rsa.pub owner={{ user }} group={{ user }} mode=0644'
+    - name: 'account | copy ssh private key'
+      # Модуль copy просто берёт и копирует файл из папки src в папку dest
+      copy: 'src=keys/id_rsa dest={{ home }}/.ssh/id_rsa owner={{ user }} group={{ user }} mode=0600'
+
+    - name: 'account | copy ssh public key'
+      copy: 'src=keys/id_rsa.pub dest={{ home }}/.ssh/id_rsa.pub owner={{ user }} group={{ user }} mode=0644'
 
     # Устанавливаем ruby-build, rbenv, bundler (шаги взяты из инструкции к установке rbenv)
     - name: 'rbenv | clone repo'
@@ -144,10 +150,10 @@
     # Rails setup | копируем settings.yml с нашими настройками
     - name: 'rails | copy settings.yml'
       copy: 'src=configs/settings.yml dest={{ application }}/shared/config/settings.yml owner={{ user }} group={{ user }} mode=0644'
-      
+
     - name: 'rails | copy .env.production'
-      copy: 'src=../../.env.production dest={{ application }}/shared/.env.production owner={{ user }} group={{ user }} mode=0644'
-      
+      copy: 'src=../../.env.production dest={{ application }}/shared/.env owner={{ user }} group={{ user }} mode=0644'
+
     - name: 'rails | copy secrets.yml'
       copy: 'src=../../config/secrets.yml dest={{ application }}/shared/config/secrets.yml owner={{ user }} group={{ user }} mode=0644'
 
