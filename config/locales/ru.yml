@@ -20,7 +20,7 @@ ru:
       add_card: "Добавить карточку"
   dashboard:
     cards:
-      index: 
+      index:
         all_cards: "Все карточки"
       create:
         successful_create_card: "Карточка успешно создана"
@@ -89,6 +89,7 @@ ru:
         update: "Обновить"
         edit: "Обновить"
         new: "Создать"
+        create: "Создать"
     oauths:
       callback:
         logged_in_from: "Вы вошли через %{provider}"

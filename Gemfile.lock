@@ -313,8 +313,6 @@ GEM
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.1.0)
-    validates_email_format_of (1.6.3)
-      i18n
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -370,7 +368,6 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   uglifier
-  validates_email_format_of
   web-console (~> 2.0)
   whenever
 
