@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.0.1'
+gem 'rails', '5.0.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -50,5 +50,4 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem "codeclimate-test-reporter", require: nil
 end
