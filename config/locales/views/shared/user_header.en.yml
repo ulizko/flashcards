@@ -1,0 +1,10 @@
+en:
+  shared:
+    user_header:
+      my_decks: 'My decks'
+      decks: 'All decks'
+      add_deck: 'Add deck'
+      my_cards: 'My cards'
+      cards: 'All cards'
+      add_card: 'Add card'
+      logout: 'Logout'

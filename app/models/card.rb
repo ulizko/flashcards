@@ -10,12 +10,6 @@ class Card < ApplicationRecord
 
   validates_presence_of :original_text, :translated_text, :deck, :user
   validate :original_text_eql_translated_text, on: [:create, :update]
-  validates :original_text,
-            format: { with: /\A[A-ZА-ЯЁa-zа-яё][a-zа-яё]+\Z/,
-                      message: :invalid }
-  validates :translated_text,
-            format: { with: /\A[А-ЯЁA-Z(а-яёa-z][\s;()-.а-яёa-z]+\Z/,
-                      message: :invalid }
 
   before_create :set_review_date
 

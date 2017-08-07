@@ -1,0 +1,33 @@
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= t('.decks') %>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <%= link_to t('.my_decks'), decks_path, class: "dropdown-item"%>
+      <%= link_to t('.add_deck'), new_deck_path, class: "dropdown-item"%>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= t('.cards') %>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <%= link_to t('.my_cards'), cards_path, class: "dropdown-item"%>
+      <%= link_to t('.add_card'), new_card_path, class: "dropdown-item"%>
+    </div>
+  </li>
+</ul>
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item dropdown">
+    <%= render 'shared/language' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to current_user.email, edit_user_path(current_user.id), class: 'nav-link' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to :logout, method: :delete, class: 'nav-link' do %>
+      <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t('.logout') %>
+    <% end %>
+  </li>
+</ul>

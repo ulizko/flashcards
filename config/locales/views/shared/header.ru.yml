@@ -1,0 +1,6 @@
+ru:
+  shared:
+    header:
+      flashcards: 'Флэшкарточкер'
+      register: 'Зарегистрироваться'
+      login: 'Войти'

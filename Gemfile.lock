@@ -44,9 +44,14 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     arel (7.1.4)
     ast (2.3.0)
+    autoprefixer-rails (7.1.2.4)
+      execjs
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap (4.0.0.alpha6)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.4.19)
     builder (3.2.3)
     byebug (9.0.6)
     capistrano (3.8.2)
@@ -342,6 +347,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap (~> 4.0.0.alpha6)
   byebug
   capistrano-bundler
   capistrano-rails
@@ -356,6 +362,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   fog-aws
+  font-awesome-rails
   http_accept_language
   jbuilder
   jquery-rails
@@ -380,7 +387,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   uglifier
-  web-console (~> 2.0)
+  web-console
   whenever
 
 BUNDLED WITH

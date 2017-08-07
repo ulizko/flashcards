@@ -5,13 +5,17 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   before_action :set_locale
 
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge options
+  end
+
   private
 
   def set_locale
-    locale = if current_user
-               current_user.locale
-             elsif params[:locale]
+    locale = if params[:locale]
                session[:locale] = params[:locale]
+             elsif current_user
+               current_user.locale
              elsif session[:locale]
                session[:locale]
              else

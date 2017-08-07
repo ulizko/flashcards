@@ -1,4 +1,5 @@
-/*= require_tree .*/
+@import "bootstrap";
+@import "font-awesome";
 
 .table > tbody > tr > td {
   vertical-align: middle;
@@ -14,34 +15,15 @@ p {
   width: 960px;
 }
 
-#container .message {
-  height: 20px;
+.alert {
+  margin-top: 46px;
   margin-bottom: 46px;
 }
 
-#container > section {
-  clear: both;
-}
-
-#container > header {
-  margin-bottom: 46px;
-}
-
-#container > header > h1 {
-  float: left;
-  margin: 0;
-}
-
-.navigation-links {
-  float: right;
-}
-
-.navigation-links li {
-  display: inline-block;
-  margin: 0 16px;
+.content {
+  margin-top: 46px;
 }
 
 /* MISC */
 
 .clearfix:after {content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;} html[xmlns].clearfix{display:block;} * html .clearfix{height:1%;}
-

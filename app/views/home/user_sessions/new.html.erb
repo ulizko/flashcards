@@ -1,5 +1,5 @@
 <h1><%= t('.login') %></h1>
 
 <%= render 'form' %>
-<%= link_to t('.login_with_', provider: 'Twitter'), auth_at_provider_path(:provider => :twitter) %> |
-<%= link_to t('.login_with_', provider: 'VK'), auth_at_provider_path(:provider => :vk) %> 
+<%= link_to t('.login_with_', provider: 'Twitter'), auth_at_provider_path(provider: :twitter) %> |
+<%= link_to t('.login_with_', provider: 'VK'), auth_at_provider_path(provider: :vk) %>

@@ -12,7 +12,7 @@ ru:
       login: "Войти"
       logout: "Выйти"
       flashcards: "Флэшкарточкер"
-      langauge: "Язык"
+      language: "Язык"
       russian: "Русский"
       english: "Английский"
       all_cards: "Все карточки"
@@ -63,6 +63,11 @@ ru:
       destroy:
         logged_out: "Вы вышли"
   home:
+    main:
+      welcome:
+        welcome: 'Добро пожаловать!'
+        first_manager: 'Первый в мире удобный менеджер флеш-карточек*. Именно так.'
+        developer_think: "* По мнению разработчика :) "
     user_sessions:
       form:
         login: "Войти"
@@ -84,7 +89,7 @@ ru:
         email: "Емэйл"
         password: "Пароль"
         confirmation: "Подтверждение пароля"
-        langauge: "Язык"
+        language: "Язык"
         action_user: "%{action} пользователя"
         update: "Обновить"
         edit: "Обновить"

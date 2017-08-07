@@ -1,0 +1,26 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <nav class="navbar navbar-light bg-faded">
+    <%= link_to t('.flashcards'), root_path, class: "navbar-brand" %>
+  </nav>
+  <div class="collapse navbar-collapse">
+    <% if current_user  %>
+      <%= render 'shared/user_header' %>
+    <% else %>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <%= render 'shared/language' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_path, class: 'nav-link' do %>
+            <i class="fa fa-user-plus" aria-hidden="true"></i>  <%= t('.register') %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to :login, class: 'nav-link' do %>
+            <i class="fa fa-sign-in" aria-hidden="true"></i> <%= t('.login') %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</nav>

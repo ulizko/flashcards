@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :cards
   accepts_nested_attributes_for :authentications
 
+  before_create :set_default_locale
+
   delegate :not_reviewed, to: :decks, prefix: true
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
@@ -23,5 +25,11 @@ class User < ApplicationRecord
     users.each do |user|
       NotificationsMailer.pending_cards(user).deliver_now
     end
+  end
+
+  private
+
+  def set_default_locale
+    self.locale = I18n.locale
   end
 end

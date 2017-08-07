@@ -1,24 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   defaults:
     show: "Show"
@@ -33,7 +12,7 @@ en:
       login: "Login"
       logout: "Logout"
       flashcards: "Flashcards"
-      langauge: "Langauge"
+      language: "language"
       russian: "Russian"
       english: "English"
       all_cards: "All cards"
@@ -41,7 +20,7 @@ en:
       add_card: "Add card"
   dashboard:
     cards:
-      index: 
+      index:
         all_cards: "All cards"
       create:
         successful_create_card: "Card successful create"
@@ -84,6 +63,11 @@ en:
       destroy:
         logged_out: "Logged out"
   home:
+    main:
+      welcome:
+        welcome: 'Welcome!'
+        first_manager: "The world's first handy flash card manager *. Exactly."
+        developer_think: '* According to the developer :)'
     user_sessions:
       form:
         login: "Login"
@@ -105,7 +89,7 @@ en:
         email: "Email"
         password: "Password"
         confirmation: "Password confirmation"
-        langauge: "Langauge"
+        language: "language"
         action_user: "%{action} user"
         update: "Update"
         edit: "Update"
@@ -166,4 +150,3 @@ en:
       content_type_whitelist_error: "You are not allowed to upload %{content_type} files"
       content_type_blacklist_error: "You are not allowed to upload %{content_type} files"
       mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
-  

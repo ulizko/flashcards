@@ -23,6 +23,8 @@ gem 'newrelic_rpm'
 gem 'dotenv-rails', :groups => [:development, :test, :production]
 gem 'rails_admin', '>= 1.1.1'
 gem "rolify"
+gem "font-awesome-rails"
+gem 'bootstrap', '~> 4.0.0.alpha6'
 
 group :production do
   gem 'puma'
@@ -37,7 +39,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   gem 'spring'
   gem 'nokogiri'
   gem 'rubocop'

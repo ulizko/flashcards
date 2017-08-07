@@ -1,0 +1,10 @@
+ru:
+  shared:
+    user_header:
+      my_decks: 'Мои колоды'
+      decks: 'Колоды'
+      add_deck: 'Добавить колоду'
+      my_cards: 'Мои карточки'
+      cards: 'Карточки'
+      add_card: 'Добавить карточку'
+      logout: 'Выход'

@@ -1,0 +1,6 @@
+en:
+  shared:
+    header:
+      flashcards: 'Flashcarder'
+      register: 'Register'
+      login: 'Sign In'
