@@ -1,5 +1,14 @@
 <h1><%= t('.login') %></h1>
 
 <%= render 'form' %>
-<%= link_to t('.login_with_', provider: 'Twitter'), auth_at_provider_path(provider: :twitter) %> |
-<%= link_to t('.login_with_', provider: 'VK'), auth_at_provider_path(provider: :vk) %>
+
+<%= t('.login_with') %>
+<%= link_to auth_at_provider_path(provider: :twitter), class: 'provider' do %>
+  <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+<% end %> |
+<%= link_to auth_at_provider_path(provider: :vk), class: 'provider' do %>
+  <i class="fa fa-vk fa-2x" aria-hidden="true"></i>
+<% end %> |
+<%= link_to auth_at_provider_path(provider: :github), class: 'provider' do %>
+  <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+<% end %>

@@ -1,7 +1,12 @@
 Rails.application.config.sorcery.submodules = [:external]
 
 Rails.application.config.sorcery.configure do |config|
-  config.external_providers = [:twitter, :vk]
+  config.external_providers = [:twitter, :vk, :github]
+
+  config.github.key = ENV['GITHUB_KEY']
+  config.github.secret = ENV['GITHUB_SECRET']
+  config.github.callback_url = ENV['GITHUB_CALLBACK_URL']
+  config.github.user_info_mapping = { email: "name" }
 
   config.twitter.key = ENV['TWITTER_KEY']
   config.twitter.secret = ENV['TWITTER_SECRET']

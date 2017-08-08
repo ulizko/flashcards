@@ -10,6 +10,17 @@ p {
   font-size: 22px;
 }
 
+a.provider {
+  color: rgba(0, 0, 0, 0.5);
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
 #container {
   margin: 48px auto;
   width: 960px;

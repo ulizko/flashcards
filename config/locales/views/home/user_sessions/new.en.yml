@@ -1,0 +1,5 @@
+en:
+  home:
+    user_sessions:
+      new:
+        login_with: 'Login with: '
