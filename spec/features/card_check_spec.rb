@@ -5,7 +5,7 @@ RSpec.describe "Card check", type: :feature do
   let!(:card) { create(:card, user: user) }
   before(:each) do
     visit root_path
-    click_link I18n.t('layouts.application.login')
+    click_link I18n.t('shared.header.login')
     fill_in :email, with: user[:email]
     fill_in :password, with: 'qwerty123'
     click_button I18n.t('layouts.application.login')
